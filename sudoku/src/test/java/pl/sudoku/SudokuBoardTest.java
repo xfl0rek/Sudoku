@@ -39,14 +39,20 @@ class SudokuBoardTest {
         }
     }
 
-//    void Check_Column_Test(){
-//        BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
-//
-//        SudokuBoard sudokuBoard1 = new SudokuBoard(backtrackingSudokuSolver);
-//
-//        sudokuBoard1.solveGame();
-//
-//    }
+    void Check_Column_Test(){
+        BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+
+        SudokuBoard sudokuBoard1 = new SudokuBoard(backtrackingSudokuSolver);
+
+        sudokuBoard1.solveGame();
+
+        for(int i = 0; i < 9; i++){
+            int wynik = sudokuBoard1.getValue(0,i);
+            assertFalse(sudokuBoard1.checkColumn(wynik, i));
+
+        }
+
+    }
 
 
 
