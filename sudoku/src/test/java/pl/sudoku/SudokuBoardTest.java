@@ -24,7 +24,7 @@ class SudokuBoardTest {
         assertEquals(suma,3);
 
     }
-
+    @Test
     void Check_Row_Test(){
         BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
 
@@ -38,7 +38,7 @@ class SudokuBoardTest {
 
         }
     }
-
+    @Test
     void Check_Column_Test(){
         BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
 
@@ -58,7 +58,8 @@ class SudokuBoardTest {
 //
 //    }
 
-void Check_Board_Test(){
+    @Test
+    void Check_Board_Test(){
     int [][] tab = new int [9][9];
 
     BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
