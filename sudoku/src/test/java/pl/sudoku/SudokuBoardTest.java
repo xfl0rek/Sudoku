@@ -8,6 +8,7 @@ class SudokuBoardTest {
 
 
 
+
     @Test
     void Getter_Setter_Test() {
         BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
@@ -23,4 +24,7 @@ class SudokuBoardTest {
         assertEquals(suma,3);
 
     }
+
+
+
 }
