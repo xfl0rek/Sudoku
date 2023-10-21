@@ -25,6 +25,29 @@ class SudokuBoardTest {
 
     }
 
+    void Check_Row_Test(){
+        BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+
+        SudokuBoard sudokuBoard1 = new SudokuBoard(backtrackingSudokuSolver);
+
+        sudokuBoard1.solveGame();
+
+        for(int i = 0; i < 9; i++){
+             int wynik = sudokuBoard1.getValue(i,0);
+             assertFalse(sudokuBoard1.checkRow(i, wynik));
+
+        }
+    }
+
+//    void Check_Column_Test(){
+//        BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+//
+//        SudokuBoard sudokuBoard1 = new SudokuBoard(backtrackingSudokuSolver);
+//
+//        sudokuBoard1.solveGame();
+//
+//    }
+
 
 
 }
