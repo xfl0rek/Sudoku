@@ -48,7 +48,7 @@ class SudokuBoardTest {
 
         for(int i = 0; i < 9; i++){
             int wynik = sudokuBoard1.getValue(0,i);
-            assertFalse(sudokuBoard1.checkColumn(wynik, i));
+            assertFalse(sudokuBoard1.checkColumn(i, wynik));
 
         }
 
