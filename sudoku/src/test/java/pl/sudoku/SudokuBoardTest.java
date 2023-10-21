@@ -54,6 +54,29 @@ class SudokuBoardTest {
 
     }
 
+//    void Check_Box_Test(){
+//
+//    }
 
+void Check_Board_Test(){
+    int [][] tab = new int [9][9];
+
+    BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+
+    SudokuBoard sudokuBoard1 = new SudokuBoard(backtrackingSudokuSolver);
+
+    sudokuBoard1.solveGame();
+
+    sudokuBoard1.getBoard(tab);
+
+    for(int i = 0; i < 9; i++){
+        for(int j = 0; j < 9; j++){
+            assertEquals(sudokuBoard1.getValue(i,j),tab[i][j]);
+        }
+    }
+
+
+
+}
 
 }
