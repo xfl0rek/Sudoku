@@ -8,5 +8,7 @@ public class Main {
 
         sudokuBoard1.solveGame();
         sudokuBoard1.printBoard();
+
+
     }
 }
