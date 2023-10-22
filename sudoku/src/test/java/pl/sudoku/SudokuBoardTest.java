@@ -32,11 +32,16 @@ class SudokuBoardTest {
 
         sudokuBoard1.solveGame();
 
-        for(int i = 0; i < 9; i++){
-             int wynik = sudokuBoard1.getValue(i,0);
-             assertFalse(sudokuBoard1.checkRow(i, wynik));
 
+
+        for(int i = 0; i < 9; i++){
+            assertFalse(sudokuBoard1.checkRow(i, 9));
+            assertTrue(sudokuBoard1.checkRow(i,0));
         }
+
+
+
+
     }
     @Test
     void Check_Column_Test(){
@@ -47,16 +52,15 @@ class SudokuBoardTest {
         sudokuBoard1.solveGame();
 
         for(int i = 0; i < 9; i++){
-            int wynik = sudokuBoard1.getValue(0,i);
-            assertFalse(sudokuBoard1.checkColumn(i, wynik));
+
+            assertTrue(sudokuBoard1.checkColumn(i, 0));
+            assertFalse(sudokuBoard1.checkColumn(i, 9));
 
         }
 
     }
 
-//    void Check_Box_Test(){
-//
-//    }
+
 
     @Test
     void Get_Board_Test(){
@@ -90,8 +94,8 @@ class SudokuBoardTest {
 
     for(int w = 0; w < 9; w+=3){
         for(int k = 0; k < 9; k+=3){
-            int lewy_gorny = sudokuBoard1.getValue(w, k);
-            assertFalse(sudokuBoard1.checkBox(w, k, lewy_gorny));
+            assertTrue(sudokuBoard1.checkBox(w, k, 0));
+            assertFalse(sudokuBoard1.checkBox(w, k, 9));
         }
     }
 }
