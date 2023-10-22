@@ -59,7 +59,7 @@ class SudokuBoardTest {
 //    }
 
     @Test
-    void Check_Board_Test(){
+    void Get_Board_Test(){
     int [][] tab = new int [9][9];
 
     BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
@@ -78,6 +78,22 @@ class SudokuBoardTest {
 
 
 
+}
+
+@Test
+    void Check_Box_Test(){
+    BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+
+    SudokuBoard sudokuBoard1 = new SudokuBoard(backtrackingSudokuSolver);
+
+    sudokuBoard1.solveGame();
+
+    for(int w = 0; w < 9; w+=3){
+        for(int k = 0; k < 9; k+=3){
+            int lewy_gorny = sudokuBoard1.getValue(w, k);
+            assertFalse(sudokuBoard1.checkBox(w, k, lewy_gorny));
+        }
+    }
 }
 
 }
