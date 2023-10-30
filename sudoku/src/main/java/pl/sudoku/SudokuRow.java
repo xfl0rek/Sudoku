@@ -4,7 +4,7 @@ public class SudokuRow {
 
     private int [] wiersz = new int [9];
 
-    SudokuRow(int [] wiersz){
+    SudokuRow(int [] wiersz) {
         this.wiersz = wiersz;
     }
 }

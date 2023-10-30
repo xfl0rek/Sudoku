@@ -27,8 +27,8 @@ public class BacktrackingSudokuSolver implements SudokuSolver {
         Collections.shuffle(valuesToTry);
 
         for (int value : valuesToTry) {
-            if (sudokuBoard.checkRow(row, value) && sudokuBoard.checkColumn(column, value)
-                    && sudokuBoard.checkBox(row, column, value)) {
+            if (checkRow(sudokuBoard, row, value) && checkColumn(sudokuBoard, column, value)
+                    && checkBox(sudokuBoard, row, column, value)) {
                 sudokuBoard.setValue(row, column, value);
                 solve(sudokuBoard);
 
@@ -39,6 +39,41 @@ public class BacktrackingSudokuSolver implements SudokuSolver {
                 sudokuBoard.setValue(row, column, 0);
             }
         }
+    }
+
+    private boolean checkRow(SudokuBoard sudokuBoard, int row, int value) {
+        for (int i = 0; i < 9; i++) {
+            if (sudokuBoard.getValue(row, i) == value) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private boolean checkColumn(SudokuBoard sudokuBoard, int column, int value) {
+        for (int i = 0; i < 9; i++) {
+            if (sudokuBoard.getValue(i, column) == value) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private boolean checkBox(SudokuBoard sudokuBoard, int row, int column, int value) {
+        int boxStartRow = row - row % 3;
+        int boxStartColumn = column - column % 3;
+
+        for (int i = boxStartRow; i < boxStartRow + 3; i++) {
+            for (int j = boxStartColumn; j  < boxStartColumn + 3; j++) {
+                if (sudokuBoard.getValue(i, j) == value) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     private boolean isBoardFilled(SudokuBoard sudokuBoard) {
