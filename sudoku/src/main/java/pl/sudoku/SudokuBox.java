@@ -1,4 +1,7 @@
 package pl.sudoku;
 
-public class SudokuBox {
+public class SudokuBox extends SudokuVerify {
+    SudokuBox(SudokuField[] sudokuFields) {
+        super(sudokuFields);
+    }
 }
