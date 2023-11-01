@@ -42,4 +42,30 @@ public class SudokuBoard {
         }
         return new SudokuRow(sudokuFields);
    }
+
+   public SudokuColumn getColumn(int x){
+        SudokuField[] sudokuFields = new SudokuField[9];
+
+        for(int i = 0; i < 9; i++){
+            sudokuFields[i] = new SudokuField();
+            sudokuFields[i].setFieldValue(board[i][x].getFieldValue());
+        }
+        return new SudokuColumn(sudokuFields);
+   }
+
+   public SudokuBox getBox(int x, int y){
+        SudokuField[] sudokuFields = new SudokuField[9];
+
+        int boxStartRow = x - x % 3;
+        int boxStartColumn = y - y % 3;
+        int index = 0;
+
+        for(int w = boxStartRow; w < boxStartRow + 3; w++){
+            for(int k = boxStartColumn; k < boxStartColumn + 3; k++ ){
+                sudokuFields[index] = new SudokuField();
+                sudokuFields[index].setFieldValue(board[w][k].getFieldValue());
+            }
+        }
+        return new SudokuBox(sudokuFields);
+   }
 }
