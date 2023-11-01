@@ -3,6 +3,8 @@ package pl.sudoku;
 public class SudokuField {
     private int value;
 
+    public SudokuField() {}
+
     public SudokuField(int value) {
         if (value >= 1 && value <= 9) {
             this.value = value;
