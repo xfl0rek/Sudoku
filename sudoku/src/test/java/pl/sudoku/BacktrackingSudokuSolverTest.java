@@ -12,7 +12,7 @@ class BacktrackingSudokuSolverTest {
         SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
         sudokuBoard.solveGame();
 
-        int[][] testBoard = new int[9][9];
+        SudokuField[][] testBoard = new SudokuField[9][9];
         sudokuBoard.getBoard(testBoard);
 
         for (int row = 0; row < 9; row++) {
@@ -46,8 +46,8 @@ class BacktrackingSudokuSolverTest {
 
     @Test
     void solveComparisonTest() {
-        int[][] testBoard1 = new int[9][9];
-        int[][] testBoard2 = new int[9][9];
+        SudokuField[][] testBoard1 = new SudokuField[9][9];
+        SudokuField[][] testBoard2 = new SudokuField[9][9];
 
         BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
         SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);

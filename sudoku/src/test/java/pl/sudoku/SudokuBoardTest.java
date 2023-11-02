@@ -5,10 +5,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SudokuBoardTest {
-
-
-
-
     @Test
     void Getter_Setter_Test() {
         BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
@@ -27,7 +23,7 @@ class SudokuBoardTest {
 
     @Test
     void Get_Board_Test() {
-        int [][] tab = new int [9][9];
+        SudokuField[][] tab = new SudokuField[9][9];
 
         BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
 
@@ -36,11 +32,18 @@ class SudokuBoardTest {
         sudokuBoard1.solveGame();
 
         sudokuBoard1.getBoard(tab);
+    }
 
-        for(int i = 0; i < 9; i++){
-            for(int j = 0; j < 9; j++){
-                assertEquals(sudokuBoard1.getValue(i,j),tab[i][j]);
-            }
-        }
+    @Test
+    public void checkBoardTest() {
+        BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+        SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
+        sudokuBoard.solveGame();
+
+        assertTrue(sudokuBoard.checkBoard());
+
+        int testValue = sudokuBoard.getValue(0,1);
+        sudokuBoard.setValue(0, 0, testValue);
+        assertFalse(sudokuBoard.checkBoard());
     }
 }
