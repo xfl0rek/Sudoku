@@ -70,7 +70,7 @@ public class SudokuBoard {
         return new SudokuBox(sudokuFields);
    }
 
-   boolean checkBoard() {
+   private boolean checkBoard() {
         for (int i = 0; i < 9; i++) {
             if (!getRow(i).verify()) {
                 return false;
