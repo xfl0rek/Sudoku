@@ -72,19 +72,15 @@ public class SudokuBoard {
 
    private boolean checkBoard() {
         for (int i = 0; i < 9; i++) {
-            if (!getRow(i).verify()) {
-                return false;
-            }
-        }
+            for (int j = 0; j < 9; j++) {
+                if (!getRow(i).verify()) {
+                    return false;
+                }
 
-        for (int i = 0; i < 9; i++) {
-            if (!getColumn(i).verify()) {
-                return false;
-            }
-        }
+                if (!getColumn(i).verify()) {
+                    return false;
+                }
 
-        for (int i = 0; i < 9; i += 3) {
-            for (int j = 0; j < 9; j += 3) {
                 if (!getBox(i, j).verify()) {
                     return false;
                 }
@@ -92,5 +88,9 @@ public class SudokuBoard {
         }
 
         return true;
+   }
+
+   public boolean isBoardValid() {
+        return checkBoard();
    }
 }

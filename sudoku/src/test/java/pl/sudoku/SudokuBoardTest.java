@@ -39,4 +39,46 @@ class SudokuBoardTest {
             }
         }
     }
+
+    @Test
+    public void checkBoardTest() {
+        BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+        SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
+        sudokuBoard.solveGame();
+
+        assertTrue(sudokuBoard.isBoardValid());
+    }
+
+    @Test
+    public void checkBoardInvalidRowTest() {
+        BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+        SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
+        sudokuBoard.solveGame();
+
+        sudokuBoard.setValue(0, 0, sudokuBoard.getValue(0, 1));
+
+        assertFalse(sudokuBoard.isBoardValid());
+    }
+
+    @Test
+    public void checkBoardInvalidColumnTest() {
+        BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+        SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
+        sudokuBoard.solveGame();
+
+        sudokuBoard.setValue(1, 0, sudokuBoard.getValue(0, 0));
+
+        assertFalse(sudokuBoard.isBoardValid());
+    }
+
+    @Test
+    public void checkBoardInvalidBoxTest() {
+        BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+        SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
+        sudokuBoard.solveGame();
+
+        sudokuBoard.setValue(1, 1, sudokuBoard.getValue(0, 0));
+
+        assertFalse(sudokuBoard.isBoardValid());
+    }
 }
