@@ -2,7 +2,7 @@ package pl.sudoku;
 
 public abstract class SudokuVerify {
 
-    protected SudokuField[] sudokuFields;
+    private SudokuField[] sudokuFields;
 
     public SudokuVerify(SudokuField[] sudokuFields) {
         this.sudokuFields = sudokuFields;
