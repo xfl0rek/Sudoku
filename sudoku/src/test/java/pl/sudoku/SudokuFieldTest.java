@@ -19,5 +19,4 @@ class SudokuFieldTest {
         assertEquals(sudokuField.getFieldValue(), 1);
 
     }
-
 }
