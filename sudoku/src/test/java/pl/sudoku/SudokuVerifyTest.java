@@ -2,6 +2,10 @@ package pl.sudoku;
 
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class SudokuVerifyTest {
@@ -30,9 +34,14 @@ class SudokuVerifyTest {
 
         assertFalse(sudokuBoard.getRow(0).verify());
 
-        SudokuField [] sudokuFields = new SudokuField[5];
+        SudokuField [] sudokuField = new SudokuField[5];
         for(int i = 0; i < 5; i++) {
-            sudokuFields[i] = new SudokuField(i);
+            sudokuField[i] = new SudokuField(i);
+        }
+        List<SudokuField> sudokuFields = Arrays.asList(new SudokuField[5]);
+        for(int i = 0; i < 5; i++) {
+//            sudokuFields[i] = new SudokuField(i);
+            sudokuFields.set(i,sudokuField[i]);
         }
         Exception exception = assertThrows(Exception.class, () -> {
             new SudokuRow(sudokuFields);

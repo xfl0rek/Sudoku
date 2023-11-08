@@ -1,7 +1,9 @@
 package pl.sudoku;
 
+import java.util.List;
+
 public class SudokuBox extends SudokuVerify {
-    SudokuBox(SudokuField[] sudokuFields) {
+    SudokuBox(List<SudokuField> sudokuFields) {
         super(sudokuFields);
     }
 }
