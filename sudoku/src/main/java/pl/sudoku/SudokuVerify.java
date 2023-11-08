@@ -1,11 +1,10 @@
 package pl.sudoku;
 
-import java.util.Arrays;
 import java.util.List;
 
 public abstract class SudokuVerify {
 
-    private List<SudokuField> sudokuFields = Arrays.asList(new SudokuField[9]);
+    private final List<SudokuField> sudokuFields;
 
     public SudokuVerify(List<SudokuField> sudokuFields) {
         if (sudokuFields.size() != 9) {

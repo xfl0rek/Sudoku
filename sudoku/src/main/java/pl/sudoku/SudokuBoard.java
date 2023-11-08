@@ -1,12 +1,12 @@
 package pl.sudoku;
 
-import java.util.List;
 import java.util.Arrays;
+import java.util.List;
 
 public class SudokuBoard {
-    private SudokuField[][] board = new SudokuField[9][9];
+    private final SudokuField[][] board = new SudokuField[9][9];
 
-    private SudokuSolver sudokuSolver;
+    private final SudokuSolver sudokuSolver;
 
     public SudokuBoard(SudokuSolver solver) {
         sudokuSolver = solver;
@@ -37,7 +37,7 @@ public class SudokuBoard {
    }
 
    public SudokuRow getRow(int y) {
-//        SudokuField[] sudokuFields = new SudokuField[9];
+       //SudokuField[] sudokuFields = new SudokuField[9];
        List<SudokuField> sudokuFields = Arrays.asList(new SudokuField[9]);
 
         for (int i = 0; i < 9; i++) {
@@ -65,7 +65,7 @@ public class SudokuBoard {
 
         for (int w = boxStartRow; w < boxStartRow + 3; w++) {
             for (int k = boxStartColumn; k < boxStartColumn + 3; k++) {
-//                sudokuFields[index] = new SudokuField(board[w][k].getFieldValue());
+                //sudokuFields[index] = new SudokuField(board[w][k].getFieldValue());
                 sudokuFields.set(index, board[w][k]);
                 index++;
             }

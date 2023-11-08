@@ -2,7 +2,6 @@ package pl.sudoku;
 
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
@@ -40,17 +39,13 @@ class SudokuVerifyTest {
         }
         List<SudokuField> sudokuFields = Arrays.asList(new SudokuField[5]);
         for(int i = 0; i < 5; i++) {
-//            sudokuFields[i] = new SudokuField(i);
+//          sudokuFields[i] = new SudokuField(i);
             sudokuFields.set(i,sudokuField[i]);
         }
         Exception exception = assertThrows(Exception.class, () -> {
             new SudokuRow(sudokuFields);
         });
 
-
-
-       assertEquals( exception.getMessage(), "The sudokuFields array must be a 9-element array.");
-
-
+       assertEquals(exception.getMessage(), "The sudokuFields array must be a 9-element array.");
     }
 }

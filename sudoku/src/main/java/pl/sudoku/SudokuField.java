@@ -6,7 +6,9 @@ public class SudokuField {
     SudokuField(int value) {
         this.value = value;
     }
+
     SudokuField() {
+
     }
 
     public int getFieldValue() {
