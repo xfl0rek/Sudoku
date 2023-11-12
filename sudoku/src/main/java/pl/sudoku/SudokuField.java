@@ -15,7 +15,6 @@ public class SudokuField {
         return value;
     }
 
-
     public void setFieldValue(int newValue) {
         if (newValue >= 0 && newValue <= 9) {
             value = newValue;
