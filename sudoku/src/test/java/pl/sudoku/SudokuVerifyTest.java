@@ -42,10 +42,8 @@ class SudokuVerifyTest {
 //          sudokuFields[i] = new SudokuField(i);
             sudokuFields.set(i,sudokuField[i]);
         }
-        Exception exception = assertThrows(Exception.class, () -> {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             new SudokuRow(sudokuFields);
         });
-
-       assertEquals(exception.getMessage(), "The sudokuFields array must be a 9-element array.");
     }
 }

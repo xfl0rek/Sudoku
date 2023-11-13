@@ -162,4 +162,11 @@
         </plugins>
     </reporting>
 
+    <licenses>
+        <license>
+            <name>Internet Systems Consortium</name>
+            <url>https://www.isc.org/licenses/</url>
+        </license>
+    </licenses>
+
 </project>
