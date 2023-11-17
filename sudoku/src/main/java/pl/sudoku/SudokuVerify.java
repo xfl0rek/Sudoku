@@ -1,5 +1,7 @@
 package pl.sudoku;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import java.util.List;
 
 public abstract class SudokuVerify {
@@ -23,5 +25,10 @@ public abstract class SudokuVerify {
             }
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this).append("sudokuFields", sudokuFields).toString();
     }
 }

@@ -46,4 +46,15 @@ class SudokuVerifyTest {
             new SudokuRow(sudokuFields);
         });
     }
+
+    @Test
+    public void toStringTest() {
+        List<SudokuField> sudokuFields = Arrays.asList(new SudokuField[9]);
+        for(int i = 0; i < 9; i++) {
+            sudokuFields.set(i, sudokuFields.get(i));
+        }
+        SudokuBox sudokuBox = new SudokuBox(sudokuFields);
+        assertNotNull(sudokuBox.toString());
+        assertNotEquals(sudokuBox.toString().length(), 0);
+    }
 }
