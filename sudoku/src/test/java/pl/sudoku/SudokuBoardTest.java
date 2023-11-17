@@ -81,4 +81,14 @@ class SudokuBoardTest {
 
         assertFalse(sudokuBoard.isBoardValid());
     }
+
+    @Test
+    public void toStringTest() {
+        BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+        SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
+        sudokuBoard.solveGame();
+
+        assertNotNull(sudokuBoard.toString());
+        assertNotEquals(sudokuBoard.toString().length(), 0);
+    }
 }

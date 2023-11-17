@@ -1,5 +1,7 @@
 package pl.sudoku;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -95,5 +97,18 @@ public class SudokuBoard {
 
    public boolean isBoardValid() {
         return checkBoard();
+   }
+
+   @Override
+   public String toString() {
+       ToStringBuilder builder = new ToStringBuilder(this);
+
+       for (int i = 0; i < 9; i++) {
+           for (int j = 0; j < 9; j++) {
+               builder.append(board[i][j].getFieldValue());
+           }
+       }
+
+       return builder.toString();
    }
 }
