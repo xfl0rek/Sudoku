@@ -51,4 +51,17 @@ class SudokuFieldTest {
 
         assertTrue(sudokuFields[1].equals(sudokuFields[1]));
     }
+
+    @Test
+    public void hashCodeTest() {
+        SudokuField[] sudokuFields = new SudokuField[9];
+
+        for (int i = 0; i < 9; i++) {
+            sudokuFields[i] = new SudokuField(i);
+        }
+
+        assertEquals(sudokuFields[0].hashCode(), sudokuFields[0].hashCode());
+
+        assertNotEquals(sudokuFields[0].hashCode(), sudokuFields[1].hashCode());
+    }
 }

@@ -1,6 +1,7 @@
 package pl.sudoku;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -47,6 +48,13 @@ public class SudokuField {
         }
         SudokuField rhs = (SudokuField) object;
         return new EqualsBuilder().append(value, rhs.value).isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(13, 43)
+                .append(value)
+                .toHashCode();
     }
 }
 
