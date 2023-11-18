@@ -1,5 +1,6 @@
 package pl.sudoku;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import java.util.List;
@@ -30,5 +31,26 @@ public abstract class SudokuVerify {
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE).append("sudokuFields", sudokuFields).toString();
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null) {
+            return false;
+        }
+
+        if (object == this) {
+            return true;
+        }
+
+        if (object.getClass() != getClass()) {
+            return false;
+        }
+
+        SudokuVerify rhs = (SudokuVerify) object;
+
+        return new EqualsBuilder()
+                .append(sudokuFields, rhs.sudokuFields)
+                .isEquals();
     }
 }

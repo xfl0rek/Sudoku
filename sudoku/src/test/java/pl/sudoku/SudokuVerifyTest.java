@@ -62,4 +62,39 @@ class SudokuVerifyTest {
         assertNotNull(sudokuBox.toString());
         assertNotEquals(sudokuBox.toString().length(), 0);
     }
+
+    @Test
+    public void equalsTest() {
+        SudokuField[] sudokuField = new SudokuField[9];
+
+        BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+
+        for (int i = 0; i < 9; i++) {
+            sudokuField[i] = new SudokuField();
+            sudokuField[i].setFieldValue(i);
+        }
+
+        List<SudokuField> sudokuFields = Arrays.asList(new SudokuField[9]);
+
+        SudokuRow sudokuRow = new SudokuRow(sudokuFields);
+
+        assertFalse(sudokuRow.equals(null));
+
+        assertTrue(sudokuRow.equals(sudokuRow));
+
+        assertFalse(sudokuRow.equals(backtrackingSudokuSolver));
+
+        SudokuField[] sudokuField2 = new SudokuField[9];
+
+        for (int i = 0; i < 9; i++) {
+            sudokuField2[i] = new SudokuField();
+            sudokuField2[i].setFieldValue(i + 1);
+        }
+
+        List<SudokuField> sudokuFields2 = Arrays.asList(sudokuField2);
+
+        SudokuRow sudokuRow2 = new SudokuRow(sudokuFields2);
+
+        assertFalse(sudokuRow.equals(sudokuRow2));
+    }
 }
