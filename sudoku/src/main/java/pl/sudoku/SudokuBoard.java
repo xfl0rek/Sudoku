@@ -1,6 +1,7 @@
 package pl.sudoku;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.util.Arrays;
 import java.util.List;
@@ -101,7 +102,7 @@ public class SudokuBoard {
 
    @Override
    public String toString() {
-       ToStringBuilder builder = new ToStringBuilder(this);
+       ToStringBuilder builder = new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE);
 
        for (int i = 0; i < 9; i++) {
            for (int j = 0; j < 9; j++) {

@@ -49,9 +49,14 @@ class SudokuVerifyTest {
 
     @Test
     public void toStringTest() {
+        SudokuField [] sudokuField = new SudokuField[9];
+        for(int i = 0; i < 9; i++) {
+            sudokuField[i] = new SudokuField(i);
+        }
+
         List<SudokuField> sudokuFields = Arrays.asList(new SudokuField[9]);
         for(int i = 0; i < 9; i++) {
-            sudokuFields.set(i, sudokuFields.get(i));
+            sudokuFields.set(i, sudokuField[i]);
         }
         SudokuBox sudokuBox = new SudokuBox(sudokuFields);
         assertNotNull(sudokuBox.toString());

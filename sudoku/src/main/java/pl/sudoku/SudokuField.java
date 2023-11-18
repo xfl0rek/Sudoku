@@ -1,6 +1,7 @@
 package pl.sudoku;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class SudokuField {
     private int value;
@@ -25,9 +26,9 @@ public class SudokuField {
 
     @Override
     public String toString() {
-        ToStringBuilder builder = new ToStringBuilder(this);
+        ToStringBuilder builder = new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE);
 
-        builder.append("value", value);
+        builder.append(value);
 
         return builder.toString();
     }
