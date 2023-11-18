@@ -13,6 +13,13 @@ class BacktrackingSudokuSolverTest {
         sudokuBoard.solveGame();
 
         SudokuField[][] testBoard = new SudokuField[9][9];
+
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                testBoard[i][j] = new SudokuField();
+            }
+        }
+
         sudokuBoard.getBoard(testBoard);
 
         for (int row = 0; row < 9; row++) {
@@ -52,6 +59,13 @@ class BacktrackingSudokuSolverTest {
         BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
         SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
         sudokuBoard.solveGame();
+
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                testBoard1[i][j] = new SudokuField();
+                testBoard2[i][j] = new SudokuField();
+            }
+        }
 
         sudokuBoard.getBoard(testBoard1);
 

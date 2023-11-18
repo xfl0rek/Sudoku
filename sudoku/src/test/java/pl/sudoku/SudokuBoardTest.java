@@ -25,6 +25,12 @@ class SudokuBoardTest {
     void Get_Board_Test() {
         SudokuField[][] tab = new SudokuField[9][9];
 
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                tab[i][j] = new SudokuField();
+            }
+        }
+
         BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
 
         SudokuBoard sudokuBoard1 = new SudokuBoard(backtrackingSudokuSolver);
@@ -89,5 +95,23 @@ class SudokuBoardTest {
         sudokuBoard.solveGame();
         assertNotNull(sudokuBoard.toString());
         assertNotEquals(sudokuBoard.toString().length(), 0);
+    }
+
+    @Test
+    public void equalsTest() {
+        BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+        SudokuBoard sudokuBoard1 = new SudokuBoard(backtrackingSudokuSolver);
+        sudokuBoard1.solveGame();
+
+        assertTrue(sudokuBoard1.equals(sudokuBoard1));
+
+        assertFalse(sudokuBoard1.equals(null));
+
+        SudokuBoard sudokuBoard2 = new SudokuBoard(backtrackingSudokuSolver);
+        sudokuBoard2.solveGame();
+
+        assertFalse(sudokuBoard1.equals(sudokuBoard2));
+
+        assertFalse(sudokuBoard1.equals(backtrackingSudokuSolver));
     }
 }

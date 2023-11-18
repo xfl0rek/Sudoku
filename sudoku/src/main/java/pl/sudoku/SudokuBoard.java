@@ -1,5 +1,6 @@
 package pl.sudoku;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -27,7 +28,9 @@ public class SudokuBoard {
 
    public void getBoard(SudokuField[][] tab) {
         for (int i = 0; i < 9; i++) {
-            System.arraycopy(board[i], 0, tab[i], 0, 9);
+            for (int j = 0; j < 9; j++) {
+                tab[i][j].setFieldValue(board[i][j].getFieldValue());
+            }
         }
    }
 
@@ -111,5 +114,26 @@ public class SudokuBoard {
        }
 
        return builder.toString();
+   }
+
+   @Override
+   public boolean equals(Object object) {
+        if (object == null) {
+            return false;
+        }
+
+        if (object == this) {
+            return true;
+        }
+
+        if (object.getClass() != getClass()) {
+            return false;
+        }
+
+        SudokuBoard rhs = (SudokuBoard) object;
+
+        return new EqualsBuilder()
+                .append(board, rhs.board)
+                .isEquals();
    }
 }
