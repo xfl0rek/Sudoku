@@ -30,4 +30,25 @@ class SudokuFieldTest {
         assertNotNull(sudokuField.toString());
         assertNotEquals(sudokuField.toString().length(), 0);
     }
+
+    @Test
+    public void EqualsTest() {
+        SudokuField [] sudokuFields = new SudokuField[9];
+        for(int i = 0; i < 9; i++) {
+            sudokuFields[i] = new SudokuField(i);
+        }
+        BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+
+        assertFalse(sudokuFields[1].equals(sudokuFields[2]));
+
+        sudokuFields[1].setFieldValue(0);
+
+        assertTrue(sudokuFields[0].equals(sudokuFields[1]));
+
+        assertFalse(sudokuFields[0].equals(null));
+
+        assertFalse(sudokuFields[8].equals(backtrackingSudokuSolver));
+
+        assertTrue(sudokuFields[1].equals(sudokuFields[1]));
+    }
 }

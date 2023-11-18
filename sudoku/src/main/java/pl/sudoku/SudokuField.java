@@ -1,5 +1,6 @@
 package pl.sudoku;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -32,4 +33,21 @@ public class SudokuField {
 
         return builder.toString();
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null) {
+            return false;
+        }
+        if (object == this) {
+            return true;
+        }
+        if (object.getClass() != getClass()) {
+            return false;
+        }
+        SudokuField rhs = (SudokuField) object;
+        return new EqualsBuilder().append(value, rhs.value).isEquals();
+    }
 }
+
+
