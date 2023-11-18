@@ -97,4 +97,14 @@ class SudokuVerifyTest {
 
         assertFalse(sudokuRow.equals(sudokuRow2));
     }
+    @Test
+    public void hashCodeTest() {
+          SudokuRow sudokuRow1 = new SudokuRow(Arrays.asList(new SudokuField[9]));
+          SudokuRow sudokuRow2 = new SudokuRow(Arrays.asList(new SudokuField[9]));
+
+          assertEquals(sudokuRow1.hashCode(), sudokuRow2.hashCode());
+
+
+    }
 }
+
