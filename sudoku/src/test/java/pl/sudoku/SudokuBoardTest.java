@@ -114,4 +114,18 @@ class SudokuBoardTest {
 
         assertFalse(sudokuBoard1.equals(backtrackingSudokuSolver));
     }
+
+    @Test
+    public void hashCodeTest() {
+        BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+        SudokuBoard sudokuBoard1 = new SudokuBoard(backtrackingSudokuSolver);
+        sudokuBoard1.solveGame();
+
+        SudokuBoard sudokuBoard2 = new SudokuBoard(backtrackingSudokuSolver);
+        sudokuBoard2.solveGame();
+
+        assertEquals(sudokuBoard1.hashCode(), sudokuBoard1.hashCode());
+
+        assertNotEquals(sudokuBoard1.hashCode(), sudokuBoard2.hashCode());
+    }
 }

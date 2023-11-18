@@ -1,6 +1,7 @@
 package pl.sudoku;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -135,5 +136,10 @@ public class SudokuBoard {
         return new EqualsBuilder()
                 .append(board, rhs.board)
                 .isEquals();
+   }
+
+   @Override
+    public int hashCode() {
+        return new HashCodeBuilder(13, 43).append(board).toHashCode();
    }
 }
