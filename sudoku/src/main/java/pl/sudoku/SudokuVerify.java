@@ -32,7 +32,9 @@ public abstract class SudokuVerify {
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE).append("sudokuFields", sudokuFields).toString();
+        return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE)
+                .append("sudokuFields", sudokuFields)
+                .toString();
     }
 
     @Override
