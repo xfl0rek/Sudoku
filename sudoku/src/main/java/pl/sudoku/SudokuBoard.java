@@ -106,15 +106,10 @@ public class SudokuBoard {
 
    @Override
    public String toString() {
-       ToStringBuilder builder = new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE);
-
-       for (int i = 0; i < 9; i++) {
-           for (int j = 0; j < 9; j++) {
-               builder.append(board[i][j].getFieldValue());
-           }
-       }
-
-       return builder.toString();
+       return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE)
+               .append("board", board)
+               .append("sudokuSolver", sudokuSolver)
+               .toString();
    }
 
    @Override
@@ -135,11 +130,15 @@ public class SudokuBoard {
 
         return new EqualsBuilder()
                 .append(board, rhs.board)
+                .append(sudokuSolver, rhs.sudokuSolver)
                 .isEquals();
    }
 
    @Override
     public int hashCode() {
-        return new HashCodeBuilder(13, 43).append(board).toHashCode();
+        return new HashCodeBuilder(13, 43)
+                .append(board)
+                .append(sudokuSolver)
+                .toHashCode();
    }
 }

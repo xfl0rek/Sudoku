@@ -92,7 +92,19 @@ class SudokuBoardTest {
     public void toStringTest() {
         BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
         SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
-        sudokuBoard.solveGame();
+
+        sudokuBoard.setValue(0,0,1);
+        sudokuBoard.setValue(0,1,2);
+
+        assertTrue(sudokuBoard
+                .toString()
+                .contains("{{1,2,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0}," +
+                        "{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0}," +
+                        "{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0}}"));
+        assertTrue(sudokuBoard
+                .toString()
+                .contains("pl.sudoku.BacktrackingSudokuSolver@"));
+
         assertNotNull(sudokuBoard.toString());
         assertNotEquals(sudokuBoard.toString().length(), 0);
     }
