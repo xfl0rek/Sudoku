@@ -12,12 +12,14 @@ public class FileSudokuBoardDao implements Dao<SudokuBoard> {
     }
 
     @Override
-    public SudokuBoard read() throws IOException, ClassNotFoundException {
+    public SudokuBoard read() {
         SudokuBoard sudokuBoard;
         try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(fileName))) {
             sudokuBoard = (SudokuBoard) objectInputStream.readObject();
+            return sudokuBoard;
+        } catch (IOException | ClassNotFoundException classNotFoundException) {
+            return null;
         }
-        return sudokuBoard;
     }
 
     @Override
