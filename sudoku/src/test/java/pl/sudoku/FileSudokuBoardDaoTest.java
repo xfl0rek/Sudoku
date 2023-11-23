@@ -2,7 +2,11 @@ package pl.sudoku;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
+
 
 class FileSudokuBoardDaoTest {
 
@@ -19,7 +23,7 @@ class FileSudokuBoardDaoTest {
     }
 
     @Test
-    public void readAndWriteTest() {
+    public void readAndWriteTest() throws Exception {
         BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
         SudokuBoard sudokuBoard1 = new SudokuBoard(backtrackingSudokuSolver);
         sudokuBoard1.solveGame();
@@ -34,5 +38,14 @@ class FileSudokuBoardDaoTest {
         assertNotNull(sudokuBoard2);
 
         assertTrue(readAndWriteTestHelper(sudokuBoard1, sudokuBoard2));
+
+        SudokuBoard sudokuBoard3;
+
+        Dao<SudokuBoard> sudokuBoardDao1 = sudokuBoardDaoFactory.getFileDao("newFile");
+
+        sudokuBoard3 = sudokuBoardDao1.read();
+
+        assertNull(sudokuBoard3);
+
     }
 }
