@@ -2,7 +2,7 @@ package pl.sudoku;
 
 import java.io.*;
 
-public class FileSudokuBoardDao implements Dao<SudokuBoard> {
+public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
     private String fileName;
 
     FileSudokuBoardDao(String fileName) {
@@ -28,6 +28,11 @@ public class FileSudokuBoardDao implements Dao<SudokuBoard> {
         } catch (IOException ioe) {
             System.out.println(ioe);
         }
-
     }
+
+    @Override
+    public void close() throws Exception {
+        System.out.println("Closed");
+    }
+
 }
