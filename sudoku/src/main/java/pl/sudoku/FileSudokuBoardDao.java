@@ -1,8 +1,6 @@
 package pl.sudoku;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 
 public class FileSudokuBoardDao implements Dao<SudokuBoard> {
     private String fileName;
@@ -24,6 +22,12 @@ public class FileSudokuBoardDao implements Dao<SudokuBoard> {
 
     @Override
     public void write(SudokuBoard obj) {
+        try(FileOutputStream fileOutputStream = new FileOutputStream(fileName)) {
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(obj);
+        } catch (IOException ioe) {
+            System.out.println(ioe);
+        }
 
     }
 }
