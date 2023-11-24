@@ -2,9 +2,6 @@ package pl.sudoku;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -23,7 +20,7 @@ class FileSudokuBoardDaoTest {
     }
 
     @Test
-    public void readAndWriteTest() throws Exception {
+    public void readAndWriteTest() {
         BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
         SudokuBoard sudokuBoard1 = new SudokuBoard(backtrackingSudokuSolver);
         sudokuBoard1.solveGame();
@@ -38,18 +35,36 @@ class FileSudokuBoardDaoTest {
         assertNotNull(sudokuBoard2);
 
         assertTrue(readAndWriteTestHelper(sudokuBoard1, sudokuBoard2));
+    }
 
-        SudokuBoard sudokuBoard3;
-        Dao<SudokuBoard> sudokuBoardDao1 = sudokuBoardDaoFactory.getFileDao("testFile2");
-
-        sudokuBoard3 = sudokuBoardDao1.read();
-
-        assertNull(sudokuBoard3);
-
-        Dao<SudokuBoard> sudokuBoardDao2 = sudokuBoardDaoFactory.getFileDao("?");
+    @Test
+    public void readExceptionTest() {
+        SudokuBoardDaoFactory sudokuBoardDaoFactory = new SudokuBoardDaoFactory();
+        Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao("?");
 
         assertThrows(RuntimeException.class, () -> {
-           sudokuBoardDao2.write(sudokuBoard1);
+            sudokuBoardDao.read();
         });
+    }
+
+    @Test
+    public void writeExceptionTest() {
+        BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+        SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
+        sudokuBoard.solveGame();
+
+        SudokuBoardDaoFactory sudokuBoardDaoFactory = new SudokuBoardDaoFactory();
+        Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao("?");
+
+        assertThrows(RuntimeException.class, () -> {
+            sudokuBoardDao.write(sudokuBoard);
+        });
+    }
+
+    @Test
+    public void closeTest() throws Exception {
+        SudokuBoardDaoFactory sudokuBoardDaoFactory = new SudokuBoardDaoFactory();
+        Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao("testFile2");
+        sudokuBoardDao.close();
     }
 }

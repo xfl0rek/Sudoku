@@ -16,13 +16,14 @@ public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
             sudokuBoard = (SudokuBoard) objectInputStream.readObject();
             return sudokuBoard;
         } catch (IOException | ClassNotFoundException classNotFoundException) {
-            return null;
+            throw new RuntimeException("A problem was encountered while trying to read the file.",
+                    classNotFoundException);
         }
     }
 
     @Override
     public void write(SudokuBoard obj) {
-        try(FileOutputStream fileOutputStream = new FileOutputStream(fileName)) {
+        try (FileOutputStream fileOutputStream = new FileOutputStream(fileName)) {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(obj);
         } catch (IOException ioe) {
