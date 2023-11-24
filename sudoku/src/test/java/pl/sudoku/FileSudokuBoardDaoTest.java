@@ -30,7 +30,7 @@ class FileSudokuBoardDaoTest {
         SudokuBoardDaoFactory sudokuBoardDaoFactory = new SudokuBoardDaoFactory();
         SudokuBoard sudokuBoard2;
 
-        Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao("testFile");
+        Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao("testFile1");
         sudokuBoardDao.write(sudokuBoard1);
 
         sudokuBoard2 = sudokuBoardDao.read();
@@ -40,12 +40,16 @@ class FileSudokuBoardDaoTest {
         assertTrue(readAndWriteTestHelper(sudokuBoard1, sudokuBoard2));
 
         SudokuBoard sudokuBoard3;
-
-        Dao<SudokuBoard> sudokuBoardDao1 = sudokuBoardDaoFactory.getFileDao("newFile");
+        Dao<SudokuBoard> sudokuBoardDao1 = sudokuBoardDaoFactory.getFileDao("testFile2");
 
         sudokuBoard3 = sudokuBoardDao1.read();
 
         assertNull(sudokuBoard3);
 
+        Dao<SudokuBoard> sudokuBoardDao2 = sudokuBoardDaoFactory.getFileDao("?");
+
+        assertThrows(RuntimeException.class, () -> {
+           sudokuBoardDao2.write(sudokuBoard1);
+        });
     }
 }

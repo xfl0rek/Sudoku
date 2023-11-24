@@ -3,7 +3,7 @@ package pl.sudoku;
 import java.io.*;
 
 public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
-    private String fileName;
+    private final String fileName;
 
     FileSudokuBoardDao(String fileName) {
         this.fileName = fileName;
@@ -26,7 +26,7 @@ public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(obj);
         } catch (IOException ioe) {
-            System.out.println(ioe);
+            throw new RuntimeException("A problem was encountered writing to the file. ", ioe);
         }
     }
 
@@ -34,5 +34,4 @@ public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
     public void close() throws Exception {
         System.out.println("Closed");
     }
-
 }
