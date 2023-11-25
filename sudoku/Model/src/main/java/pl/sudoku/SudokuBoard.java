@@ -131,7 +131,6 @@ public class SudokuBoard implements Serializable {
 
         return new EqualsBuilder()
                 .append(board, rhs.board)
-                .append(sudokuSolver, rhs.sudokuSolver)
                 .isEquals();
    }
 
@@ -139,7 +138,6 @@ public class SudokuBoard implements Serializable {
     public int hashCode() {
         return new HashCodeBuilder(13, 43)
                 .append(board)
-                .append(sudokuSolver)
                 .toHashCode();
    }
 }

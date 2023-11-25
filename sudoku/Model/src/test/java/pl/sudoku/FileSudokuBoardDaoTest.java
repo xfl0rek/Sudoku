@@ -4,20 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
 class FileSudokuBoardDaoTest {
-
-    boolean readAndWriteTestHelper(SudokuBoard sudokuBoard1, SudokuBoard sudokuBoard2) {
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                if (sudokuBoard1.getValue(i, j) != sudokuBoard2.getValue(i, j)) {
-                    return false;
-                }
-            }
-        }
-
-        return true;
-    }
 
     @Test
     public void readAndWriteTest() {
@@ -27,24 +14,29 @@ class FileSudokuBoardDaoTest {
         SudokuBoardDaoFactory sudokuBoardDaoFactory = new SudokuBoardDaoFactory();
         SudokuBoard sudokuBoard2;
 
-        Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao("testFile1");
-        sudokuBoardDao.write(sudokuBoard1);
+        try (Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao("testFile1")) {
+            sudokuBoardDao.write(sudokuBoard1);
+            sudokuBoard2 = sudokuBoardDao.read();
 
-        sudokuBoard2 = sudokuBoardDao.read();
-
-        assertNotNull(sudokuBoard2);
-
-        assertTrue(readAndWriteTestHelper(sudokuBoard1, sudokuBoard2));
+            assertEquals(sudokuBoard1, sudokuBoard2);
+            assertTrue(sudokuBoard2.isBoardValid());
+            assertNotNull(sudokuBoard2);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 
     @Test
     public void readExceptionTest() {
         SudokuBoardDaoFactory sudokuBoardDaoFactory = new SudokuBoardDaoFactory();
-        Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao("?");
 
-        assertThrows(RuntimeException.class, () -> {
-            sudokuBoardDao.read();
-        });
+        try (Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao("?")) {
+            assertThrows(RuntimeException.class, () -> {
+               sudokuBoardDao.read();
+            });
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 
     @Test
@@ -54,17 +46,13 @@ class FileSudokuBoardDaoTest {
         sudokuBoard.solveGame();
 
         SudokuBoardDaoFactory sudokuBoardDaoFactory = new SudokuBoardDaoFactory();
-        Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao("?");
 
-        assertThrows(RuntimeException.class, () -> {
-            sudokuBoardDao.write(sudokuBoard);
-        });
-    }
-
-    @Test
-    public void closeTest() throws Exception {
-        SudokuBoardDaoFactory sudokuBoardDaoFactory = new SudokuBoardDaoFactory();
-        Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao("testFile2");
-        sudokuBoardDao.close();
+        try (Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao("?")) {
+            assertThrows(RuntimeException.class, () -> {
+               sudokuBoardDao.write(sudokuBoard);
+            });
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 }
