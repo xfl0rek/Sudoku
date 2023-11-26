@@ -42,7 +42,7 @@ class SudokuVerifyTest {
 //          sudokuFields[i] = new SudokuField(i);
             sudokuFields.set(i,sudokuField[i]);
         }
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             new SudokuRow(sudokuFields);
         });
     }

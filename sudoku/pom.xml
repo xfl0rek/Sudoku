@@ -13,7 +13,24 @@
         <module>View</module>
     </modules>
 
+    <developers>
+        <developer>
+            <id>237370</id>
+            <name>Wojciech Florczak</name>
+            <email>237370@edu.p.lodz.pl</email>
+        </developer>
+
+        <developer>
+            <id>247765</id>
+            <name>Jakub Poddemski</name>
+            <email>247765@edu.p.lodz.pl</email>
+        </developer>
+    </developers>
+
+    <description>Projekt grupy laboratoryjnej mka_pn_1545_04</description>
+
     <properties>
+        <java.version>17</java.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -102,7 +119,7 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.11.0</version>
                     <configuration>
-                        <release>${java.version}</release>
+                        <release>17</release>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -172,8 +189,16 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.17.0</version>
+                <version>3.21.0</version>
             </plugin>
         </plugins>
     </reporting>
+
+    <licenses>
+        <license>
+            <name>Internet Systems Consortium</name>
+            <url>https://www.isc.org/licenses/</url>
+        </license>
+    </licenses>
+
 </project>

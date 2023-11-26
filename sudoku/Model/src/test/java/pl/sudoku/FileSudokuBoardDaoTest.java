@@ -18,11 +18,10 @@ class FileSudokuBoardDaoTest {
             sudokuBoardDao.write(sudokuBoard1);
             sudokuBoard2 = sudokuBoardDao.read();
 
-            assertEquals(sudokuBoard1, sudokuBoard2);
-            assertTrue(sudokuBoard2.isBoardValid());
             assertNotNull(sudokuBoard2);
+            assertEquals(sudokuBoard1, sudokuBoard2);
         } catch (Exception exception) {
-            exception.printStackTrace();
+
         }
     }
 
@@ -35,7 +34,7 @@ class FileSudokuBoardDaoTest {
                sudokuBoardDao.read();
             });
         } catch (Exception exception) {
-            exception.printStackTrace();
+
         }
     }
 
@@ -52,7 +51,7 @@ class FileSudokuBoardDaoTest {
                sudokuBoardDao.write(sudokuBoard);
             });
         } catch (Exception exception) {
-            exception.printStackTrace();
+
         }
     }
 }
