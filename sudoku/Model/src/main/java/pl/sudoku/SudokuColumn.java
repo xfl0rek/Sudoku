@@ -6,4 +6,9 @@ public class SudokuColumn extends SudokuVerify {
     SudokuColumn(List<SudokuField> sudokuFields) {
         super(sudokuFields);
     }
+
+    @Override
+    public SudokuColumn clone() {
+        return null;
+    }
 }

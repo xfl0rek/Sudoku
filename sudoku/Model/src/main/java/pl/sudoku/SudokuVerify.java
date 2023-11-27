@@ -7,7 +7,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.util.List;
 
-public abstract class SudokuVerify {
+public abstract class SudokuVerify implements Cloneable {
 
     private final List<SudokuField> sudokuFields;
 

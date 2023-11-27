@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
-public class SudokuBoard implements Serializable {
+public class SudokuBoard implements Serializable, Cloneable {
     private final SudokuField[][] board = new SudokuField[9][9];
 
     private final SudokuSolver sudokuSolver;
@@ -140,4 +140,9 @@ public class SudokuBoard implements Serializable {
                 .append(board)
                 .toHashCode();
    }
+
+    @Override
+    public SudokuBoard clone() {
+        return null;
+    }
 }
