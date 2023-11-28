@@ -64,4 +64,20 @@ class SudokuFieldTest {
 
         assertNotEquals(sudokuFields[0].hashCode(), sudokuFields[1].hashCode());
     }
+
+    @Test
+    public void cloneTest() throws CloneNotSupportedException {
+        SudokuField sudokuField = new SudokuField(5);
+        SudokuField sudokuFieldClone;
+
+        sudokuFieldClone = sudokuField.clone();
+
+        assertNotNull(sudokuFieldClone);
+        assertEquals(sudokuField, sudokuFieldClone);
+        assertNotSame(sudokuField, sudokuFieldClone);
+
+        sudokuField.setFieldValue(7);
+
+        assertNotEquals(sudokuField, sudokuFieldClone);
+    }
 }
