@@ -80,4 +80,24 @@ class SudokuFieldTest {
 
         assertNotEquals(sudokuField, sudokuFieldClone);
     }
+
+    @Test
+    public void compareToTest() {
+        SudokuField sudokuField = new SudokuField(8);
+        SudokuField sudokuFieldToCompare = new SudokuField(8);
+
+        assertEquals(sudokuField.compareTo(sudokuFieldToCompare), 0);
+
+        sudokuFieldToCompare.setFieldValue(5);
+
+        assertEquals(sudokuField.compareTo(sudokuFieldToCompare), 1);
+
+        sudokuFieldToCompare.setFieldValue(9);
+
+        assertEquals(sudokuField.compareTo(sudokuFieldToCompare), -1);
+
+        assertThrows(NullPointerException.class, () -> {
+           sudokuField.compareTo(null);
+        });
+    }
 }
