@@ -106,5 +106,18 @@ class SudokuVerifyTest {
 
 
     }
+
+    @Test
+    public void cloneTest() throws CloneNotSupportedException {
+        SudokuField [] tab1 = new SudokuField[9];
+        for(int i = 0; i < 9; i++) {
+            tab1[i] = new SudokuField(i);
+        }
+        SudokuBox sudokuBox1 = new SudokuBox(Arrays.asList(tab1));
+        SudokuBox sudokuBox2 = sudokuBox1.clone();
+        assertNotNull(sudokuBox2);
+        assertEquals(sudokuBox1, sudokuBox2);
+        assertNotSame(sudokuBox1, sudokuBox2);
+    }
 }
 

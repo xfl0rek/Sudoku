@@ -9,7 +9,7 @@ import java.util.List;
 
 public abstract class SudokuVerify implements Cloneable {
 
-    private final List<SudokuField> sudokuFields;
+    protected final List<SudokuField> sudokuFields;
 
     public SudokuVerify(List<SudokuField> sudokuFields) {
         if (sudokuFields.size() != 9) {
