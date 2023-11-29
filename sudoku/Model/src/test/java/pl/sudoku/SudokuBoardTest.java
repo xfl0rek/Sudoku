@@ -140,4 +140,17 @@ class SudokuBoardTest {
 
         assertNotEquals(sudokuBoard1.hashCode(), sudokuBoard2.hashCode());
     }
+
+
+    @Test
+    public void SudokuBoardCloneTest() throws CloneNotSupportedException {
+        BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+        SudokuBoard sudokuBoard1 =  new SudokuBoard(backtrackingSudokuSolver);
+        sudokuBoard1.solveGame();
+        SudokuBoard sudokuBoard2 = sudokuBoard1.clone();
+        assertNotNull(sudokuBoard2);
+        assertEquals(sudokuBoard1, sudokuBoard2);
+        assertNotSame(sudokuBoard1, sudokuBoard2);
+
+    }
 }
