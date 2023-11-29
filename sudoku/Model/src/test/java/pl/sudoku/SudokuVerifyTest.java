@@ -118,6 +118,12 @@ class SudokuVerifyTest {
         assertNotNull(sudokuBox2);
         assertEquals(sudokuBox1, sudokuBox2);
         assertNotSame(sudokuBox1, sudokuBox2);
+
+        SudokuRow sudokuRow1 = new SudokuRow(Arrays.asList(tab1));
+        SudokuRow sudokuRow2 = sudokuRow1.clone();
+        assertNotNull(sudokuRow2);
+        assertEquals(sudokuRow1, sudokuRow2);
+        assertNotSame(sudokuRow1, sudokuRow2);
     }
 }
 
