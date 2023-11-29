@@ -152,5 +152,8 @@ class SudokuBoardTest {
         assertEquals(sudokuBoard1, sudokuBoard2);
         assertNotSame(sudokuBoard1, sudokuBoard2);
 
+        assertDoesNotThrow(() -> {
+            sudokuBoard1.clone();
+        });
     }
 }

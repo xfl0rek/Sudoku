@@ -79,6 +79,10 @@ class SudokuFieldTest {
         sudokuField.setFieldValue(7);
 
         assertNotEquals(sudokuField, sudokuFieldClone);
+
+        assertDoesNotThrow(() -> {
+            sudokuField.clone();
+        });
     }
 
     @Test

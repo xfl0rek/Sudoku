@@ -130,6 +130,12 @@ class SudokuVerifyTest {
         assertNotNull(sudokuColumn2);
         assertEquals(sudokuColumn1, sudokuColumn2);
         assertNotSame(sudokuColumn1, sudokuColumn2);
+
+        assertDoesNotThrow(() -> {
+            sudokuBox1.clone();
+            sudokuRow1.clone();
+            sudokuColumn1.clone();
+        });
     }
 }
 

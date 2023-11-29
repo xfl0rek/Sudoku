@@ -4,20 +4,23 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CreateInstanceTest {
-
+class SudokuBoardRepositoryTest {
     @Test
-    void createInstance() throws CloneNotSupportedException {
+    public void createInstanceTest() throws CloneNotSupportedException {
         BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
         SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
         sudokuBoard.solveGame();
 
-        SudokuBoardDaoFactory sudokuBoardDaoFactory = new SudokuBoardDaoFactory(sudokuBoard);
+        SudokuBoardRepository sudokuBoardRepository = new SudokuBoardRepository(sudokuBoard);
 
-        SudokuBoard sudokuBoard1 = sudokuBoardDaoFactory.createInstance();
+        SudokuBoard sudokuBoard1 = sudokuBoardRepository.createInstance();
 
         assertNotNull(sudokuBoard1);
         assertEquals(sudokuBoard, sudokuBoard1);
         assertNotSame(sudokuBoard, sudokuBoard1);
+
+        assertDoesNotThrow(() -> {
+            sudokuBoardRepository.createInstance();
+        });
     }
 }
