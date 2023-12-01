@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SudokuBoardRepositoryTest {
     @Test
-    public void createInstanceTest() throws CloneNotSupportedException {
+    public void createInstanceTest() {
         BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
         SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
         sudokuBoard.solveGame();
@@ -18,9 +18,5 @@ class SudokuBoardRepositoryTest {
         assertNotNull(sudokuBoard1);
         assertEquals(sudokuBoard, sudokuBoard1);
         assertNotSame(sudokuBoard, sudokuBoard1);
-
-        assertDoesNotThrow(() -> {
-            sudokuBoardRepository.createInstance();
-        });
     }
 }

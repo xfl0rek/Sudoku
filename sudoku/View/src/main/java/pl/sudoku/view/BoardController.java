@@ -28,14 +28,14 @@ public class BoardController {
     private SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
 
     @FXML
-    Button Exit = new Button("Exit");
+    Button exit = new Button("Exit");
 
     @FXML
     private GridPane sudokuBoardGrid;
 
     public void exit() throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("menuStart-view.fxml")));
-        window = (Stage) Exit.getScene().getWindow();
+        window = (Stage) exit.getScene().getWindow();
         window.setScene(new Scene(root));
     }
 

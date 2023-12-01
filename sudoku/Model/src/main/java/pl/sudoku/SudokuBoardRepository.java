@@ -1,13 +1,13 @@
 package pl.sudoku;
 
 public class SudokuBoardRepository {
-    private final SudokuBoard PROTOTYPE;
+    private final SudokuBoard prototype;
 
     SudokuBoardRepository(SudokuBoard sudokuBoard) {
-        this.PROTOTYPE = sudokuBoard;
+        this.prototype = sudokuBoard;
     }
 
-    public SudokuBoard createInstance() throws CloneNotSupportedException {
-        return PROTOTYPE.clone();
+    public SudokuBoard createInstance() {
+        return prototype.clone();
     }
 }

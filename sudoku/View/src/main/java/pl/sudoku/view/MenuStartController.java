@@ -50,7 +50,7 @@ public class MenuStartController {
         window.setScene(new Scene(root));
     }
 
-    public void quitGame() throws IOException {
+    public void quitGame() {
         window = (Stage) quitGameButton.getScene().getWindow();
         window.close();
     }

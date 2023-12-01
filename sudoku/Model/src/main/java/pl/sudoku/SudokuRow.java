@@ -9,12 +9,12 @@ public class SudokuRow extends SudokuVerify {
     }
 
     @Override
-    public SudokuRow clone() throws CloneNotSupportedException {
-        SudokuField [] temp_sudokuFields = new SudokuField[9];
-        for(int i = 0; i < 9; i++) {
-            temp_sudokuFields[i] = new SudokuField(sudokuFields.get(i).getFieldValue());
+    public SudokuRow clone() {
+        SudokuField [] tempSudokuFields = new SudokuField[9];
+        for (int i = 0; i < 9; i++) {
+            tempSudokuFields[i] = new SudokuField(sudokuFields.get(i).getFieldValue());
         }
-        return new SudokuRow(Arrays.asList(temp_sudokuFields));
+        return new SudokuRow(Arrays.asList(tempSudokuFields));
 
     }
 }
