@@ -47,5 +47,7 @@ public class MenuStartController {
         window.setScene(new Scene(root));
     }
 
-
+    public static GameLevel getLevel() {
+        return level;
+    }
 }
