@@ -32,4 +32,13 @@ public class MenuStartController {
         window = (Stage) easyButton.getScene().getWindow();
         window.setScene(new Scene(root));
     }
+
+    public void mediumGame() throws IOException {
+        level = GameLevel.Medium;
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("board-view.fxml")));
+        window = (Stage) mediumButton.getScene().getWindow();
+        window.setScene(new Scene(root));
+    }
+
+
 }
