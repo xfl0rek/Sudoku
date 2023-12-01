@@ -18,7 +18,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="231.0" layoutY="258.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="138.0" style="-fx-background-color: red;" text="Hard" AnchorPane.bottomAnchor="84.00000000000003" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="258.0">
+      <Button fx:id="hardButton" layoutX="231.0" layoutY="258.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="138.0" style="-fx-background-color: red;" text="Hard" AnchorPane.bottomAnchor="84.00000000000003" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="258.0" onAction="#hardGame">
          <font>
             <Font size="16.0" />
          </font>

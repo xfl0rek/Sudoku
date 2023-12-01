@@ -40,5 +40,12 @@ public class MenuStartController {
         window.setScene(new Scene(root));
     }
 
+    public void hardGame() throws IOException {
+        level = GameLevel.Hard;
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("board-view.fxml")));
+        window = (Stage) hardButton.getScene().getWindow();
+        window.setScene(new Scene(root));
+    }
+
 
 }
