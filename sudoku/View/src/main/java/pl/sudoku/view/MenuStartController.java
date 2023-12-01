@@ -26,6 +26,9 @@ public class MenuStartController {
     @FXML
     Button hardButton = new Button("Hard");
 
+    @FXML
+    Button quitGameButton = new Button("Quit Game");
+
     public void easyGame() throws IOException {
         level = GameLevel.Easy;
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("board-view.fxml")));
@@ -45,6 +48,11 @@ public class MenuStartController {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("board-view.fxml")));
         window = (Stage) hardButton.getScene().getWindow();
         window.setScene(new Scene(root));
+    }
+
+    public void quitGame() throws IOException {
+        window = (Stage) quitGameButton.getScene().getWindow();
+        window.close();
     }
 
     public static GameLevel getLevel() {

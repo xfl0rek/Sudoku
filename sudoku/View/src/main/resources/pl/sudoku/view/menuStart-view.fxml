@@ -5,20 +5,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #8F8F8F;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.sudoku.view.MenuStartController">
    <children>
-      <Button fx:id="easyButton" layoutX="230.0" layoutY="84.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="138.0" style="-fx-background-color: #90EE90;" text="Easy" AnchorPane.bottomAnchor="258.4" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="84.0" onAction="#easyGame">
+      <Button fx:id="easyButton" layoutX="230.0" layoutY="84.0" mnemonicParsing="false" onAction="#easyGame" prefHeight="57.0" prefWidth="138.0" style="-fx-background-color: #90EE90;" text="Easy" AnchorPane.bottomAnchor="258.4" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="84.0">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="mediumButton" layoutX="231.0" layoutY="171.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="138.0" style="-fx-background-color: #FCE205;" text="Medium" AnchorPane.bottomAnchor="171.20000000000002" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="171.0" onAction="#mediumGame">
+      <Button fx:id="mediumButton" layoutX="231.0" layoutY="171.0" mnemonicParsing="false" onAction="#mediumGame" prefHeight="57.0" prefWidth="138.0" style="-fx-background-color: #FCE205;" text="Medium" AnchorPane.bottomAnchor="171.20000000000002" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="171.0">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="hardButton" layoutX="231.0" layoutY="258.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="138.0" style="-fx-background-color: red;" text="Hard" AnchorPane.bottomAnchor="84.00000000000003" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="258.0" onAction="#hardGame">
+      <Button fx:id="hardButton" layoutX="231.0" layoutY="258.0" mnemonicParsing="false" onAction="#hardGame" prefHeight="57.0" prefWidth="138.0" style="-fx-background-color: red;" text="Hard" AnchorPane.bottomAnchor="84.00000000000003" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="258.0">
          <font>
             <Font size="16.0" />
          </font>
@@ -28,5 +27,6 @@
             <Font name="DejaVu Serif Bold" size="20.0" />
          </font>
       </Label>
+      <Button fx:id="quitGameButton" layoutX="263.0" layoutY="360.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Quit Game" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="260.0" AnchorPane.topAnchor="360.0" onAction="#quitGame"/>
    </children>
 </AnchorPane>

@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #8F8F8F;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.sudoku.view.BoardController">
    <children>
       <GridPane fx:id="sudokuBoardGrid" layoutX="44.8" layoutY="38.4" prefHeight="323.0" prefWidth="509.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="35.0">
@@ -33,6 +32,6 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <Button fx:id="Exit" layoutX="257.0" layoutY="359.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="85.0" text="Exit" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="257.0" AnchorPane.rightAnchor="257.0" AnchorPane.topAnchor="359.0" onAction="#exit" />
+      <Button fx:id="Exit" layoutX="257.0" layoutY="359.0" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="85.0" style="-fx-background-color: orange;" text="Exit" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="257.0" AnchorPane.rightAnchor="257.0" AnchorPane.topAnchor="359.0" />
    </children>
 </AnchorPane>
