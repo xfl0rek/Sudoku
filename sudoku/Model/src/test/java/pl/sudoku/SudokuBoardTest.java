@@ -166,11 +166,31 @@ class SudokuBoardTest {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (sudokuBoard.getValue(i, j) == 0) {
-                    count ++;
+                    count++;
                 }
             }
         }
 
         assertEquals(easyLevel.getValue(), count);
+
+        SudokuBoard sudokuBoard2 = new SudokuBoard(backtrackingSudokuSolver);
+
+        sudokuBoard2.solveGame();
+
+        sudokuBoard2.setValue(0, 0, 0);
+
+        sudokuBoard2.removeFields(easyLevel);
+
+        int count2 = 0;
+
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (sudokuBoard2.getValue(i, j) == 0) {
+                    count2++;
+                }
+            }
+        }
+
+        assertEquals(count2, easyLevel.getValue() + 1);
     }
 }
