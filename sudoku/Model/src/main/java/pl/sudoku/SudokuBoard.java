@@ -8,6 +8,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class SudokuBoard implements Serializable, Cloneable {
     private final SudokuField[][] board = new SudokuField[9][9];
@@ -152,4 +153,18 @@ public class SudokuBoard implements Serializable, Cloneable {
             return sudokuBoard;
     }
 
+    public void removeFields(GameLevel level) {
+        Random random = new Random();
+        int fieldsToRemove = level.getValue();
+
+        while (fieldsToRemove > 0) {
+            int x = random.nextInt(9);
+            int y = random.nextInt(9);
+
+            if (this.getValue(x, y) != 0) {
+                this.setValue(x, y, 0);
+                fieldsToRemove--;
+            }
+        }
+    }
 }

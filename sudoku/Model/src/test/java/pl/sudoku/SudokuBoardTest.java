@@ -141,7 +141,6 @@ class SudokuBoardTest {
         assertNotEquals(sudokuBoard1.hashCode(), sudokuBoard2.hashCode());
     }
 
-
     @Test
     public void SudokuBoardCloneTest() {
         BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
@@ -151,5 +150,27 @@ class SudokuBoardTest {
         assertNotNull(sudokuBoard2);
         assertEquals(sudokuBoard1, sudokuBoard2);
         assertNotSame(sudokuBoard1, sudokuBoard2);
+    }
+
+    @Test
+    public void removeFieldsTest() {
+        BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+        SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
+        sudokuBoard.solveGame();
+        GameLevel easyLevel = GameLevel.Easy;
+
+        sudokuBoard.removeFields(easyLevel);
+
+        int count = 0;
+
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (sudokuBoard.getValue(i, j) == 0) {
+                    count ++;
+                }
+            }
+        }
+
+        assertEquals(easyLevel.getValue(), count);
     }
 }

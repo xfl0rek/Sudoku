@@ -10,7 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import pl.sudoku.BacktrackingSudokuSolver;
-import pl.sudoku.GameBoardSetUp;
 import pl.sudoku.SudokuBoard;
 
 import java.io.IOException;
@@ -20,8 +19,6 @@ public class BoardController {
     private Stage window;
 
     private Parent root;
-
-    private GameBoardSetUp gameBoardSetUp = new GameBoardSetUp();
 
     BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
 
@@ -55,7 +52,7 @@ public class BoardController {
 
     public void initialize() {
         sudokuBoard.solveGame();
-        gameBoardSetUp.gameBoardSetUp(sudokuBoard, MenuStartController.getLevel());
+        sudokuBoard.removeFields(MenuStartController.getLevel());
         fillBoard();
     }
 }
