@@ -43,7 +43,11 @@ public class BoardController {
 
                 if (sudokuBoard.getValue(i, j) != 0) {
                     textField.setText(String.valueOf(sudokuBoard.getValue(i, j)));
+                    textField.setEditable(false);
+                    textField.setDisable(true);
                 }
+                textField.setMaxWidth(180);
+                textField.setMaxHeight(180);
                 textField.setAlignment(Pos.CENTER);
                 sudokuBoardGrid.add(textField, i, j);
             }
