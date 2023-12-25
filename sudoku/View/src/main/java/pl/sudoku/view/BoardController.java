@@ -10,13 +10,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import pl.sudoku.BacktrackingSudokuSolver;
-import pl.sudoku.SudokuBoard;
+import pl.sudoku.*;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class BoardController {
+
+    private final ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
     private Stage window;
 
     private Parent root;
@@ -31,8 +33,15 @@ public class BoardController {
     @FXML
     private GridPane sudokuBoardGrid;
 
+    @FXML
+    Button saveGame = new Button("Save game");
+
+    @FXML
+    Button loadGame = new Button("Load game");
+
     public void exit() throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("menuStart-view.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass()
+                .getResource("menuStart-view.fxml")), resourceBundle);
         window = (Stage) exit.getScene().getWindow();
         window.setScene(new Scene(root));
     }
@@ -78,6 +87,14 @@ public class BoardController {
                 sudokuBoardGrid.add(textField, i, j);
             }
         }
+    }
+
+    public void saveGame() {
+
+    }
+
+    public void loadGame() {
+
     }
 
     public void initialize() {

@@ -9,9 +9,13 @@ import javafx.stage.Stage;
 import pl.sudoku.GameLevel;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class MenuStartController {
+
+    private ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
 
     private Stage window;
     private Parent root;
@@ -27,26 +31,53 @@ public class MenuStartController {
     Button hardButton = new Button("Hard");
 
     @FXML
+    Button polishButton = new Button("Polish");
+
+    @FXML
+    Button englishButton = new Button("English");
+
+    @FXML
     Button quitGameButton = new Button("Quit Game");
 
     public void easyGame() throws IOException {
         level = GameLevel.Easy;
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("board-view.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass()
+                .getResource("board-view.fxml")), resourceBundle);
         window = (Stage) easyButton.getScene().getWindow();
         window.setScene(new Scene(root));
     }
 
     public void mediumGame() throws IOException {
         level = GameLevel.Medium;
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("board-view.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass()
+                .getResource("board-view.fxml")), resourceBundle);
         window = (Stage) mediumButton.getScene().getWindow();
         window.setScene(new Scene(root));
     }
 
     public void hardGame() throws IOException {
         level = GameLevel.Hard;
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("board-view.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass()
+                .getResource("board-view.fxml")), resourceBundle);
         window = (Stage) hardButton.getScene().getWindow();
+        window.setScene(new Scene(root));
+    }
+
+    public void setPolishLanguage() throws IOException {
+        Locale.setDefault(new Locale("pl", "PL"));
+        resourceBundle = ResourceBundle.getBundle("Lang");
+        root = FXMLLoader.load(Objects.requireNonNull(getClass()
+                .getResource("menuStart-view.fxml")), resourceBundle);
+        window = (Stage) polishButton.getScene().getWindow();
+        window.setScene(new Scene(root));
+    }
+
+    public void setEnglishLanguage() throws IOException {
+        Locale.setDefault(new Locale("en", "EN"));
+        resourceBundle = ResourceBundle.getBundle("Lang");
+        root = FXMLLoader.load(Objects.requireNonNull(getClass()
+                .getResource("menuStart-view.fxml")), resourceBundle);
+        window = (Stage) englishButton.getScene().getWindow();
         window.setScene(new Scene(root));
     }
 
