@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import pl.sudoku.BacktrackingSudokuSolver;
@@ -45,7 +46,32 @@ public class BoardController {
                     textField.setText(String.valueOf(sudokuBoard.getValue(i, j)));
                     textField.setEditable(false);
                     textField.setDisable(true);
+                } else {
+                    TextFormatter<String> textFormatter = new TextFormatter<>(change -> {
+                       String newText = change.getControlNewText();
+                       if (newText.matches("[1-9]")) {
+                           return change;
+                       } else if (change.isDeleted()){
+                           return change;
+                       } else {
+                           return null;
+                       }
+                    });
+
+                    textField.setTextFormatter(textFormatter);
+
+                    int x = i;
+                    int y = j;
+
+                    textField.textProperty().addListener((obs, oldValue, newValue) -> {
+                        int value = 0;
+                        if (newValue.matches("1-9")) {
+                            value = Integer.parseInt(newValue);
+                        }
+                        sudokuBoard.setValue(x, y, value);
+                    });
                 }
+
                 textField.setMaxWidth(180);
                 textField.setMaxHeight(180);
                 textField.setAlignment(Pos.CENTER);
