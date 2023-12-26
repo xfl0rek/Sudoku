@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #8F8F8F;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.sudoku.view.MenuStartController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="600.0" style="-fx-background-color: #8F8F8F;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.sudoku.view.MenuStartController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="247.0" layoutY="15.0" prefHeight="31.0" prefWidth="106.0" text="Sudoku" AnchorPane.leftAnchor="247.0" AnchorPane.rightAnchor="246.4" AnchorPane.topAnchor="15.0">
          <font>
@@ -35,6 +35,11 @@
          <font>
             <Font size="16.0" />
          </font></Button>
-      <Button fx:id="quitGameButton" alignment="CENTER" contentDisplay="CENTER" layoutX="246.0" layoutY="359.0" mnemonicParsing="false" onAction="#quitGame" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: orange;" text="%quitGame" />
+      <Button fx:id="quitGameButton" alignment="CENTER" contentDisplay="CENTER" layoutX="246.0" layoutY="425.0" mnemonicParsing="false" onAction="#quitGame" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: orange;" text="%quitGame" />
+      <Button fx:id="authorsButton" layoutX="246.0" layoutY="329.0" mnemonicParsing="false" onAction="#authorsButton" prefHeight="42.0" prefWidth="106.0" style="-fx-background-color: orange;" text="%authors">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import pl.sudoku.GameLevel;
@@ -38,6 +39,9 @@ public class MenuStartController {
 
     @FXML
     Button quitGameButton = new Button("Quit Game");
+
+    @FXML
+    Button authorsButton = new Button("Authors");
 
     public void easyGame() throws IOException {
         level = GameLevel.Easy;
@@ -79,6 +83,16 @@ public class MenuStartController {
                 .getResource("menuStart-view.fxml")), resourceBundle);
         window = (Stage) englishButton.getScene().getWindow();
         window.setScene(new Scene(root));
+    }
+
+    public void authorsButton() {
+        ResourceBundle listBundle = ResourceBundle.getBundle("pl.sudoku.view.Authors");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(listBundle.getObject("Title").toString());
+        alert.setContentText(listBundle.getObject("Authors") + "\n" + listBundle.getObject("Author1")
+                + "\n" + listBundle.getObject("Author2"));
+        alert.setHeaderText(null);
+        alert.show();
     }
 
     public void quitGame() {
