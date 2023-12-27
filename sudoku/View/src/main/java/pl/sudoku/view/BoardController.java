@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import pl.sudoku.*;
 
@@ -27,6 +28,8 @@ public class BoardController {
     BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
 
     private SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
+
+    private final SudokuBoardDaoFactory sudokuBoardDaoFactory = new SudokuBoardDaoFactory();
 
     @FXML
     Button exit = new Button("Exit");
@@ -94,7 +97,19 @@ public class BoardController {
     }
 
     public void saveGame() {
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extensionFilter = new FileChooser
+                .ExtensionFilter("Text Files", "*.txt");
+        fileChooser.getExtensionFilters().add(extensionFilter);
+        File file = fileChooser.showSaveDialog(new Stage());
+        String fileName = file.getAbsolutePath();
 
+        try (Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao(fileName)) {
+            sudokuBoardDao.write(sudokuBoard);
+            System.out.println(sudokuBoard);
+        } catch (Exception exception) {
+            throw new RuntimeException();
+        }
     }
 
     public void loadGame() {
