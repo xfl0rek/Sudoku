@@ -1,5 +1,6 @@
 package pl.sudoku.view;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -73,11 +74,14 @@ public class BoardController {
                     int y = j;
 
                     textField.textProperty().addListener((obs, oldValue, newValue) -> {
-                        int value = 0;
-                        if (newValue.matches("1-9")) {
-                            value = Integer.parseInt(newValue);
-                        }
-                        sudokuBoard.setValue(x, y, value);
+                        Platform.runLater(() -> {
+                            int value = 0;
+                            if (newValue.matches("[1-9]")) {
+                                value = Integer.parseInt(newValue);
+                            }
+                            sudokuBoard.setValue(x, y, value);
+                            System.out.println(sudokuBoard);
+                        });
                     });
                 }
 
