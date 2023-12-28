@@ -113,7 +113,20 @@ public class BoardController {
     }
 
     public void loadGame() {
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extensionFilter = new FileChooser
+                .ExtensionFilter("Text Files", "*.txt");
+        fileChooser.getExtensionFilters().add(extensionFilter);
+        File file = fileChooser.showOpenDialog(new Stage());
+        String fileName = file.getAbsolutePath();
 
+        try (Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao(fileName)) {
+            sudokuBoard = sudokuBoardDao.read();
+            sudokuBoardGrid.getChildren().clear();
+            fillBoard();
+        } catch (Exception exception) {
+            throw new RuntimeException();
+        }
     }
 
     public void initialize() {
