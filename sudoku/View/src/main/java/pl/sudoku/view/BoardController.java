@@ -1,6 +1,9 @@
 package pl.sudoku.view;
 
-import javafx.application.Platform;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.adapter.JavaBeanIntegerPropertyBuilder;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -12,6 +15,8 @@ import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
+import javafx.util.converter.NumberStringConverter;
 import pl.sudoku.*;
 
 import java.io.*;
@@ -30,6 +35,8 @@ public class BoardController {
     private SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
 
     private final SudokuBoardDaoFactory sudokuBoardDaoFactory = new SudokuBoardDaoFactory();
+
+    private final StringConverter<Number> converter = new NumberStringConverter();
 
     @FXML
     Button exit = new Button("Exit");
@@ -50,43 +57,51 @@ public class BoardController {
         window.setScene(new Scene(root));
     }
 
-    private void fillBoard() {
+    private void fillBoard() throws NoSuchMethodException {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 TextField textField = new TextField();
 
-                if (sudokuBoard.getValue(i, j) != 0) {
-                    textField.setText(String.valueOf(sudokuBoard.getValue(i, j)));
-                    textField.setEditable(false);
+                TextFormatter<String> textFormatter = new TextFormatter<>(change -> {
+                    String newText = change.getControlNewText();
+                    if (newText.matches("[1-9]")) {
+                        return change;
+                    } else if (change.isDeleted()) {
+                        return change;
+                    } else {
+                        return null;
+                    }
+                });
+
+                textField.setTextFormatter(textFormatter);
+
+                SudokuField sudokuField = sudokuBoard.getField(i, j);
+
+                if (!sudokuField.isEditable()) {
                     textField.setDisable(true);
-                } else {
-                    TextFormatter<String> textFormatter = new TextFormatter<>(change -> {
-                       String newText = change.getControlNewText();
-                       if (newText.matches("[1-9]")) {
-                           return change;
-                       } else if (change.isDeleted()){
-                           return change;
-                       } else {
-                           return null;
-                       }
-                    });
-
-                    textField.setTextFormatter(textFormatter);
-
-                    int x = i;
-                    int y = j;
-
-                    textField.textProperty().addListener((obs, oldValue, newValue) -> {
-                        Platform.runLater(() -> {
-                            int value = 0;
-                            if (newValue.matches("[1-9]")) {
-                                value = Integer.parseInt(newValue);
-                            }
-                            sudokuBoard.setValue(x, y, value);
-                            System.out.println(sudokuBoard);
-                        });
-                    });
                 }
+
+                IntegerProperty integerProperty = JavaBeanIntegerPropertyBuilder
+                        .create()
+                        .bean(sudokuField)
+                        .name("fieldValue")
+                        .build();
+
+                textField.textProperty().bindBidirectional(integerProperty, converter);
+
+                int x = i;
+                int y = j;
+
+                integerProperty.addListener(new ChangeListener<Number>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Number> observableValue,
+                                        Number oldValue, Number newValue) {
+                        if (newValue != null) {
+                            sudokuBoard.setValue(x, y, newValue.intValue());
+                            System.out.println(sudokuBoard);
+                        }
+                    }
+                });
 
                 textField.setMaxWidth(180);
                 textField.setMaxHeight(180);
@@ -129,7 +144,7 @@ public class BoardController {
         }
     }
 
-    public void initialize() {
+    public void initialize() throws NoSuchMethodException {
         sudokuBoard.solveGame();
         sudokuBoard.removeFields(MenuStartController.getLevel());
         fillBoard();

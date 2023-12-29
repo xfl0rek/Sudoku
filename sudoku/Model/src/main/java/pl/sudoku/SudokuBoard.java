@@ -27,6 +27,12 @@ public class SudokuBoard implements Serializable, Cloneable {
 
     public void solveGame() {
         sudokuSolver.solve(this);
+
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                board[i][j].setEditable(false);
+            }
+        }
     }
 
    public void getBoard(SudokuField[][] tab) {
@@ -43,6 +49,10 @@ public class SudokuBoard implements Serializable, Cloneable {
 
    public void setValue(int x, int y, int value) {
         board[x][y].setFieldValue(value);
+   }
+
+   public SudokuField getField(int x, int y) {
+        return board[x][y];
    }
 
    public SudokuRow getRow(int y) {
@@ -163,6 +173,7 @@ public class SudokuBoard implements Serializable, Cloneable {
 
             if (this.getValue(x, y) != 0) {
                 this.setValue(x, y, 0);
+                this.getField(x, y).setEditable(true);
                 fieldsToRemove--;
             }
         }

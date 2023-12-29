@@ -10,6 +10,8 @@ import java.io.Serializable;
 public class SudokuField implements Serializable, Cloneable, Comparable<SudokuField> {
     private int value;
 
+    private boolean isEditable = false;
+
     SudokuField(int value) {
         this.value = value;
     }
@@ -26,6 +28,14 @@ public class SudokuField implements Serializable, Cloneable, Comparable<SudokuFi
         if (newValue >= 0 && newValue <= 9) {
             value = newValue;
         }
+    }
+
+    public boolean isEditable() {
+        return isEditable;
+    }
+
+    public void setEditable(boolean editable) {
+        isEditable = editable;
     }
 
     @Override
