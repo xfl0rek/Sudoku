@@ -1,6 +1,8 @@
 package pl.sudoku;
 
 import org.junit.jupiter.api.Test;
+import pl.sudoku.exceptions.ListInvalidException;
+import pl.sudoku.exceptions.ListNullException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,8 +44,12 @@ class SudokuVerifyTest {
 //          sudokuFields[i] = new SudokuField(i);
             sudokuFields.set(i,sudokuField[i]);
         }
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(ListInvalidException.class, () -> {
             new SudokuRow(sudokuFields);
+        });
+
+        assertThrows(ListNullException.class, () -> {
+            new SudokuColumn(null);
         });
     }
 

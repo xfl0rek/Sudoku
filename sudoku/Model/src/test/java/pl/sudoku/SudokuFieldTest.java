@@ -22,6 +22,8 @@ class SudokuFieldTest {
         sudokuField.setFieldValue(-1);
         assertEquals(sudokuField.getFieldValue(), 1);
 
+        assertFalse(sudokuField.isEditable());
+
     }
 
     @Test
