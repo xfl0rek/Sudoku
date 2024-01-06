@@ -103,6 +103,7 @@ public class MenuStartController {
     }
 
     public void quitGame() {
+        logger.info(resourceBundle.getString("quitInfo"));
         window = (Stage) quitGameButton.getScene().getWindow();
         window.close();
     }
