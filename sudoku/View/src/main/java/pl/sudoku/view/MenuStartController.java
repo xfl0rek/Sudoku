@@ -75,6 +75,7 @@ public class MenuStartController {
     public void setPolishLanguage() throws IOException {
         Locale.setDefault(new Locale("pl", "PL"));
         resourceBundle = ResourceBundle.getBundle("Lang");
+        logger.info(resourceBundle.getString("changeLanguage") + resourceBundle.getString("polish"));
         root = FXMLLoader.load(Objects.requireNonNull(getClass()
                 .getResource("menuStart-view.fxml")), resourceBundle);
         window = (Stage) polishButton.getScene().getWindow();
@@ -84,6 +85,7 @@ public class MenuStartController {
     public void setEnglishLanguage() throws IOException {
         Locale.setDefault(new Locale("en", "EN"));
         resourceBundle = ResourceBundle.getBundle("Lang");
+        logger.info(resourceBundle.getString("changeLanguage") + resourceBundle.getString("english"));
         root = FXMLLoader.load(Objects.requireNonNull(getClass()
                 .getResource("menuStart-view.fxml")), resourceBundle);
         window = (Stage) englishButton.getScene().getWindow();
