@@ -1,33 +1,38 @@
 package pl.sudoku;
 
+import pl.sudoku.exceptions.FileReadException;
+import pl.sudoku.exceptions.FileWriteException;
+
 import java.io.*;
+import java.util.ResourceBundle;
 
 public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
     private final String fileName;
+
+    private ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
 
     FileSudokuBoardDao(String fileName) {
         this.fileName = fileName;
     }
 
     @Override
-    public SudokuBoard read() {
+    public SudokuBoard read() throws FileReadException {
         SudokuBoard sudokuBoard;
         try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(fileName))) {
             sudokuBoard = (SudokuBoard) objectInputStream.readObject();
             return sudokuBoard;
         } catch (IOException | ClassNotFoundException exception) {
-            throw new RuntimeException("A problem was encountered while trying to read the file.",
-                    exception);
+            throw new FileReadException(resourceBundle.getString("fileReadException"), exception);
         }
     }
 
     @Override
-    public void write(SudokuBoard obj) {
+    public void write(SudokuBoard obj) throws FileWriteException {
         try (FileOutputStream fileOutputStream = new FileOutputStream(fileName)) {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(obj);
         } catch (IOException ioe) {
-            throw new RuntimeException("A problem was encountered writing to the file. ", ioe);
+            throw new FileWriteException(resourceBundle.getString("fileWriteException"), ioe);
         }
     }
 
