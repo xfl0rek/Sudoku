@@ -17,6 +17,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import javafx.util.converter.NumberStringConverter;
+import org.apache.log4j.Logger;
 import pl.sudoku.*;
 
 import java.io.*;
@@ -24,6 +25,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class BoardController {
+    private static final Logger logger = Logger.getLogger(MenuStartApplication.class);
 
     private final ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
     private Stage window;
@@ -118,11 +120,13 @@ public class BoardController {
         fileChooser.getExtensionFilters().add(extensionFilter);
         File file = fileChooser.showSaveDialog(new Stage());
         String fileName = file.getAbsolutePath();
+        logger.info(resourceBundle.getString("saveInfo"));
 
         try (Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao(fileName)) {
             sudokuBoardDao.write(sudokuBoard);
             System.out.println(sudokuBoard);
         } catch (Exception exception) {
+            logger.info(resourceBundle.getString("savingError"));
             throw new RuntimeException();
         }
     }
@@ -134,12 +138,14 @@ public class BoardController {
         fileChooser.getExtensionFilters().add(extensionFilter);
         File file = fileChooser.showOpenDialog(new Stage());
         String fileName = file.getAbsolutePath();
+        logger.info(resourceBundle.getString("loadInfo"));
 
         try (Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao(fileName)) {
             sudokuBoard = sudokuBoardDao.read();
             sudokuBoardGrid.getChildren().clear();
             fillBoard();
         } catch (Exception exception) {
+            logger.info(resourceBundle.getString("loadingError"));
             throw new RuntimeException();
         }
     }
