@@ -4,8 +4,10 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import pl.sudoku.exceptions.ObjectNullException;
 
 import java.io.Serializable;
+import java.util.ResourceBundle;
 
 public class SudokuField implements Serializable, Cloneable, Comparable<SudokuField> {
     private int value;
@@ -77,7 +79,8 @@ public class SudokuField implements Serializable, Cloneable, Comparable<SudokuFi
     @Override
     public int compareTo(SudokuField o) {
         if (o == null) {
-            throw new NullPointerException("Object can't be null.");
+            ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
+            throw new ObjectNullException(resourceBundle.getString("fieldNullException"));
         } else if (this.getFieldValue() == o.getFieldValue()) {
             return 0;
         } else if (this.getFieldValue() > o.getFieldValue()) {

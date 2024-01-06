@@ -1,6 +1,7 @@
 package pl.sudoku;
 
 import org.junit.jupiter.api.Test;
+import pl.sudoku.exceptions.ObjectNullException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -100,7 +101,7 @@ class SudokuFieldTest {
 
         assertEquals(sudokuField.compareTo(sudokuFieldToCompare), -1);
 
-        assertThrows(NullPointerException.class, () -> {
+        assertThrows(ObjectNullException.class, () -> {
            sudokuField.compareTo(null);
         });
     }
