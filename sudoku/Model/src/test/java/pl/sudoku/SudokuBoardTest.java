@@ -1,6 +1,7 @@
 package pl.sudoku;
 
 import org.junit.jupiter.api.Test;
+import pl.sudoku.exceptions.ObjectNullException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -44,6 +45,13 @@ class SudokuBoardTest {
                 assertEquals(sudokuBoard1.getValue(i, j), tab[i][j].getFieldValue());
             }
         }
+    }
+
+    @Test
+    public void solverNullExceptionTest() {
+        assertThrows(ObjectNullException.class, () -> {
+            new SudokuBoard(null);
+        });
     }
 
     @Test

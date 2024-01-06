@@ -70,3 +70,11 @@
 2024-01-06 15:53:55 INFO  MenuStartApplication:22 - Otwieram menu gry.
 2024-01-06 15:54:28 INFO  MenuStartApplication:106 - Wyłączanie gry...
 2024-01-06 16:10:14 INFO  MenuStartApplication:22 - Otwieram menu gry.
+2024-01-06 16:31:20 INFO  MenuStartApplication:22 - Otwieram menu gry.
+2024-01-06 16:31:21 INFO  MenuStartApplication:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-06 16:31:25 INFO  MenuStartApplication:59 - Opuszczanie gry, powrót do menu.
+2024-01-06 16:31:30 INFO  MenuStartApplication:88 - Change the language to:English
+2024-01-06 16:31:36 INFO  MenuStartApplication:78 - Zmiana języka na:Polski
+2024-01-06 16:31:37 INFO  MenuStartApplication:68 - Wybrany poziom trudnosci:Trudny
+2024-01-06 16:31:38 INFO  MenuStartApplication:59 - Opuszczanie gry, powrót do menu.
+2024-01-06 16:31:39 INFO  MenuStartApplication:106 - Wyłączanie gry...
