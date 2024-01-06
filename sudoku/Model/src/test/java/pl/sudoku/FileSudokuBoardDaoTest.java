@@ -1,6 +1,8 @@
 package pl.sudoku;
 
 import org.junit.jupiter.api.Test;
+import pl.sudoku.exceptions.FileReadException;
+import pl.sudoku.exceptions.FileWriteException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,7 +32,7 @@ class FileSudokuBoardDaoTest {
         SudokuBoardDaoFactory sudokuBoardDaoFactory = new SudokuBoardDaoFactory();
 
         try (Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao("?")) {
-            assertThrows(RuntimeException.class, () -> {
+            assertThrows(FileReadException.class, () -> {
                sudokuBoardDao.read();
             });
         } catch (Exception exception) {
@@ -47,7 +49,7 @@ class FileSudokuBoardDaoTest {
         SudokuBoardDaoFactory sudokuBoardDaoFactory = new SudokuBoardDaoFactory();
 
         try (Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao("?")) {
-            assertThrows(RuntimeException.class, () -> {
+            assertThrows(FileWriteException.class, () -> {
                sudokuBoardDao.write(sudokuBoard);
             });
         } catch (Exception exception) {

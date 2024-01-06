@@ -4,4 +4,5 @@ module ModelProject {
     requires slf4j.api;
 
     exports pl.sudoku;
+    exports pl.sudoku.exceptions;
 }
