@@ -4,16 +4,25 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import pl.sudoku.exceptions.ListInvalidException;
+import pl.sudoku.exceptions.ListNullException;
 
 import java.util.List;
+import java.util.ResourceBundle;
 
 public abstract class SudokuVerify implements Cloneable {
 
     protected final List<SudokuField> sudokuFields;
 
     public SudokuVerify(List<SudokuField> sudokuFields) {
+        if (sudokuFields == null) {
+            ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
+            throw new ListNullException(resourceBundle.getString("listNullException"));
+        }
+
         if (sudokuFields.size() != 9) {
-            throw new IllegalArgumentException("The sudokuFields array must be a 9-element array.");
+            ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
+            throw new ListInvalidException(resourceBundle.getString("listInvalidException"));
         }
 
         this.sudokuFields = sudokuFields;
