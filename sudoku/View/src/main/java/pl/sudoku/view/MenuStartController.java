@@ -13,11 +13,13 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import org.apache.log4j.Logger;
 
 public class MenuStartController {
 
     private ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
 
+    private static final Logger logger = Logger.getLogger(MenuStartApplication.class);
     private Stage window;
     private Parent root;
     private static GameLevel level;
@@ -45,6 +47,7 @@ public class MenuStartController {
 
     public void easyGame() throws IOException {
         level = GameLevel.Easy;
+        logger.info(resourceBundle.getString("chosenDifficulty") + resourceBundle.getString("easy"));
         root = FXMLLoader.load(Objects.requireNonNull(getClass()
                 .getResource("board-view.fxml")), resourceBundle);
         window = (Stage) easyButton.getScene().getWindow();
@@ -53,6 +56,7 @@ public class MenuStartController {
 
     public void mediumGame() throws IOException {
         level = GameLevel.Medium;
+        logger.info(resourceBundle.getString("chosenDifficulty") + resourceBundle.getString("medium"));
         root = FXMLLoader.load(Objects.requireNonNull(getClass()
                 .getResource("board-view.fxml")), resourceBundle);
         window = (Stage) mediumButton.getScene().getWindow();
@@ -61,6 +65,7 @@ public class MenuStartController {
 
     public void hardGame() throws IOException {
         level = GameLevel.Hard;
+        logger.info(resourceBundle.getString("chosenDifficulty") + resourceBundle.getString("hard"));
         root = FXMLLoader.load(Objects.requireNonNull(getClass()
                 .getResource("board-view.fxml")), resourceBundle);
         window = (Stage) hardButton.getScene().getWindow();

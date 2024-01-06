@@ -2,3 +2,12 @@
 2024-01-06 11:58:40 INFO  MenuStartApplication:20 - Otwieram menu gry.
 2024-01-06 11:58:43 INFO  MenuStartApplication:20 - Otwieram menu gry.
 2024-01-06 12:25:11 INFO  MenuStartApplication:22 - Otwieram menu gry.
+2024-01-06 12:35:31 INFO  MenuStartApplication:22 - Otwieram menu gry.
+2024-01-06 12:35:37 INFO  MenuStartApplication:50 - Chosen difficulty level:Easy
+2024-01-06 12:35:44 INFO  MenuStartApplication:59 - Chosen difficulty level:Medium
+2024-01-06 12:35:47 INFO  MenuStartApplication:68 - Chosen difficulty level:Hard
+2024-01-06 12:35:51 INFO  MenuStartApplication:50 - Wybrany poziom trudnosciŁatwy
+2024-01-06 12:36:21 INFO  MenuStartApplication:22 - Otwieram menu gry.
+2024-01-06 12:36:24 INFO  MenuStartApplication:59 - Wybrany poziom trudnosci:Średni
+2024-01-06 12:36:28 INFO  MenuStartApplication:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-06 12:36:31 INFO  MenuStartApplication:68 - Wybrany poziom trudnosci:Trudny
