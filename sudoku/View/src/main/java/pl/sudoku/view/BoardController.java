@@ -1,9 +1,8 @@
 package pl.sudoku.view;
 
+import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.adapter.JavaBeanIntegerPropertyBuilder;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -21,6 +20,8 @@ import org.apache.log4j.Logger;
 import pl.sudoku.*;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -37,6 +38,8 @@ public class BoardController {
     private SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
 
     private final SudokuBoardDaoFactory sudokuBoardDaoFactory = new SudokuBoardDaoFactory();
+
+    private final List<IntegerProperty> integerPropertyList = new ArrayList<>();
 
     private final StringConverter<Number> converter = new NumberStringConverter();
 
@@ -90,20 +93,20 @@ public class BoardController {
                         .name("fieldValue")
                         .build();
 
+                this.integerPropertyList.add(integerProperty);
+
                 textField.textProperty().bindBidirectional(integerProperty, converter);
 
-                int x = i;
-                int y = j;
-
-                integerProperty.addListener(new ChangeListener<Number>() {
-                    @Override
-                    public void changed(ObservableValue<? extends Number> observableValue,
-                                        Number oldValue, Number newValue) {
-                        if (newValue != null) {
-                            sudokuBoard.setValue(x, y, newValue.intValue());
-                            System.out.println(sudokuBoard);
+                integerProperty.addListener(observable -> {
+                    Platform.runLater(() -> {
+                        if (isBoardSolved()) {
+                            if (sudokuBoard.isBoardValid()) {
+                                System.out.println("solved");
+                            } else {
+                                System.out.println("not solved");
+                            }
                         }
-                    }
+                    });
                 });
 
                 textField.setMaxWidth(180);
@@ -112,6 +115,17 @@ public class BoardController {
                 sudokuBoardGrid.add(textField, i, j);
             }
         }
+    }
+
+    private boolean isBoardSolved() {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (sudokuBoard.getValue(i, j) == 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public void saveGame() {
