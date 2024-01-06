@@ -26,3 +26,6 @@
 2024-01-06 12:54:07 INFO  MenuStartApplication:148 - Błąd podczas wczytywania stanu gry.
 2024-01-06 12:58:37 INFO  MenuStartApplication:22 - Otwieram menu gry.
 2024-01-06 12:58:41 INFO  MenuStartApplication:106 - Wyłączanie gry...
+2024-01-06 12:59:34 INFO  MenuStartApplication:22 - Otwieram menu gry.
+2024-01-06 12:59:37 INFO  MenuStartApplication:59 - Wybrany poziom trudnosci:Średni
+2024-01-06 12:59:40 INFO  MenuStartApplication:56 - Opuszczanie gry, powrót do menu.
