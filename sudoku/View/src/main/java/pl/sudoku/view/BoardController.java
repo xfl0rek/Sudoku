@@ -53,6 +53,7 @@ public class BoardController {
     Button loadGame = new Button("Load game");
 
     public void exit() throws IOException {
+        logger.info(resourceBundle.getString("exitInfo"));
         root = FXMLLoader.load(Objects.requireNonNull(getClass()
                 .getResource("menuStart-view.fxml")), resourceBundle);
         window = (Stage) exit.getScene().getWindow();
