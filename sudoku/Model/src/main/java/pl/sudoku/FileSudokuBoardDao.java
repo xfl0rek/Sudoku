@@ -9,7 +9,6 @@ import java.util.ResourceBundle;
 public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
     private final String fileName;
 
-    private ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
 
     FileSudokuBoardDao(String fileName) {
         this.fileName = fileName;
@@ -22,6 +21,7 @@ public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
             sudokuBoard = (SudokuBoard) objectInputStream.readObject();
             return sudokuBoard;
         } catch (IOException | ClassNotFoundException exception) {
+            ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
             throw new FileReadException(resourceBundle.getString("fileReadException"), exception);
         }
     }
@@ -32,6 +32,7 @@ public class FileSudokuBoardDao implements Dao<SudokuBoard>, AutoCloseable {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(obj);
         } catch (IOException ioe) {
+            ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
             throw new FileWriteException(resourceBundle.getString("fileWriteException"), ioe);
         }
     }

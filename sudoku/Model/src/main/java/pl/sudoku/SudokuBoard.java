@@ -4,18 +4,25 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import pl.sudoku.exceptions.ObjectNullException;
 
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.ResourceBundle;
 
 public class SudokuBoard implements Serializable, Cloneable {
     private final SudokuField[][] board = new SudokuField[9][9];
 
     private final SudokuSolver sudokuSolver;
 
+
     public SudokuBoard(SudokuSolver solver) {
+        if (solver == null) {
+            ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
+            throw new ObjectNullException(resourceBundle.getString("solverNullException"));
+        }
         sudokuSolver = solver;
 
         for (int i = 0; i < 9; i++) {
