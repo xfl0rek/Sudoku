@@ -18,6 +18,8 @@ import javafx.util.StringConverter;
 import javafx.util.converter.NumberStringConverter;
 import org.apache.log4j.Logger;
 import pl.sudoku.*;
+import pl.sudoku.exceptions.FileReadException;
+import pl.sudoku.exceptions.FileWriteException;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -101,9 +103,9 @@ public class BoardController {
                     Platform.runLater(() -> {
                         if (isBoardSolved()) {
                             if (sudokuBoard.isBoardValid()) {
-                                System.out.println("solved");
+                                logger.info(resourceBundle.getString("solved"));
                             } else {
-                                System.out.println("not solved");
+                                logger.info(resourceBundle.getString("notSolved"));
                             }
                         }
                     });
@@ -141,8 +143,8 @@ public class BoardController {
             sudokuBoardDao.write(sudokuBoard);
             System.out.println(sudokuBoard);
         } catch (Exception exception) {
-            logger.info(resourceBundle.getString("savingError"));
-            throw new RuntimeException();
+            logger.error(resourceBundle.getString("savingError"));
+            throw new FileWriteException(resourceBundle.getString("fileWriteException"), exception);
         }
     }
 
@@ -160,8 +162,8 @@ public class BoardController {
             sudokuBoardGrid.getChildren().clear();
             fillBoard();
         } catch (Exception exception) {
-            logger.info(resourceBundle.getString("loadingError"));
-            throw new RuntimeException();
+            logger.error(resourceBundle.getString("loadingError"));
+            throw new FileReadException(resourceBundle.getString("fileReadException"), exception);
         }
     }
 
