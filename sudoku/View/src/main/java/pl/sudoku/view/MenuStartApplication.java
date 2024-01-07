@@ -4,11 +4,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.util.ResourceBundle;
-import org.apache.log4j.Logger;
-
 
 public class MenuStartApplication extends Application {
 

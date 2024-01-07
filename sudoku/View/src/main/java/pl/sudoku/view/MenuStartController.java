@@ -7,13 +7,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import org.apache.log4j.Logger;
 import pl.sudoku.GameLevel;
 
 import java.io.IOException;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
-import org.apache.log4j.Logger;
 
 public class MenuStartController {
 

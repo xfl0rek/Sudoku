@@ -141,7 +141,6 @@ public class BoardController {
 
         try (Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getFileDao(fileName)) {
             sudokuBoardDao.write(sudokuBoard);
-            System.out.println(sudokuBoard);
         } catch (Exception exception) {
             logger.error(resourceBundle.getString("savingError"));
             throw new FileWriteException(resourceBundle.getString("fileWriteException"), exception);
