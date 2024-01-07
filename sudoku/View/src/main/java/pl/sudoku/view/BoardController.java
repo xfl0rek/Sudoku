@@ -28,7 +28,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class BoardController {
-    private static final Logger logger = Logger.getLogger(MenuStartApplication.class);
+    private static final Logger logger = Logger.getLogger(BoardController.class);
 
     private final ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
     private Stage window;

@@ -19,7 +19,7 @@ public class MenuStartController {
 
     private ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
 
-    private static final Logger logger = Logger.getLogger(MenuStartApplication.class);
+    private static final Logger logger = Logger.getLogger(MenuStartController.class);
     private Stage window;
     private Parent root;
     private static GameLevel level;

@@ -229,3 +229,129 @@
 2024-01-07 11:34:16 INFO  MenuStartApplication:50 - Wybrany poziom trudnosci:Łatwy
 2024-01-07 11:34:23 INFO  MenuStartApplication:61 - Opuszczanie gry, powrót do menu.
 2024-01-07 11:34:24 INFO  MenuStartApplication:106 - Wyłączanie gry...
+2024-01-07 17:26:30 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-07 17:26:34 INFO  MenuStartApplication:88 - Change the language to:English
+2024-01-07 17:26:35 INFO  MenuStartApplication:78 - Zmiana języka na:Polski
+2024-01-07 17:26:37 INFO  MenuStartApplication:68 - Wybrany poziom trudnosci:Trudny
+2024-01-07 17:26:56 INFO  MenuStartApplication:108 - Nie udało się rozwiązać planszy.
+2024-01-07 17:26:58 INFO  MenuStartApplication:61 - Opuszczanie gry, powrót do menu.
+2024-01-07 17:27:00 INFO  MenuStartApplication:59 - Wybrany poziom trudnosci:Średni
+2024-01-07 17:27:05 INFO  MenuStartApplication:157 - Wczytywanie stanu gry...
+2024-01-07 17:27:08 INFO  MenuStartApplication:106 - Rozwiązano planszę.
+2024-01-07 17:27:13 INFO  MenuStartApplication:61 - Opuszczanie gry, powrót do menu.
+2024-01-07 17:27:18 INFO  MenuStartApplication:78 - Zmiana języka na:Polski
+2024-01-07 17:27:19 INFO  MenuStartApplication:88 - Change the language to:English
+2024-01-07 17:27:20 INFO  MenuStartApplication:78 - Zmiana języka na:Polski
+2024-01-07 17:27:21 INFO  MenuStartApplication:68 - Wybrany poziom trudnosci:Trudny
+2024-01-07 17:27:25 INFO  MenuStartApplication:61 - Opuszczanie gry, powrót do menu.
+2024-01-07 17:27:27 INFO  MenuStartApplication:88 - Change the language to:English
+2024-01-07 17:27:28 INFO  MenuStartApplication:50 - Chosen difficulty level:Easy
+2024-01-07 17:27:30 INFO  MenuStartApplication:61 - Exiting the game, returning to the menu.
+2024-01-07 17:27:32 INFO  MenuStartApplication:59 - Chosen difficulty level:Medium
+2024-01-07 17:27:34 INFO  MenuStartApplication:61 - Exiting the game, returning to the menu.
+2024-01-07 17:27:35 INFO  MenuStartApplication:68 - Chosen difficulty level:Hard
+2024-01-07 17:27:47 INFO  MenuStartApplication:108 - Failed to solve the board.
+2024-01-07 17:27:50 INFO  MenuStartApplication:61 - Exiting the game, returning to the menu.
+2024-01-07 17:27:50 INFO  MenuStartApplication:59 - Chosen difficulty level:Medium
+2024-01-07 17:27:55 INFO  MenuStartApplication:157 - Loading the game...
+2024-01-07 17:27:58 INFO  MenuStartApplication:106 - Board solved.
+2024-01-07 17:28:01 INFO  MenuStartApplication:61 - Exiting the game, returning to the menu.
+2024-01-07 17:29:51 INFO  MenuStartApplication:59 - Chosen difficulty level:Medium
+2024-01-07 17:29:53 INFO  MenuStartApplication:61 - Exiting the game, returning to the menu.
+2024-01-07 17:29:53 INFO  MenuStartApplication:68 - Chosen difficulty level:Hard
+2024-01-07 17:29:54 INFO  MenuStartApplication:61 - Exiting the game, returning to the menu.
+2024-01-07 17:29:55 INFO  MenuStartApplication:68 - Chosen difficulty level:Hard
+2024-01-07 17:30:23 INFO  MenuStartApplication:157 - Loading the game...
+2024-01-07 17:30:26 INFO  MenuStartApplication:106 - Board solved.
+2024-01-07 17:30:29 INFO  MenuStartApplication:61 - Exiting the game, returning to the menu.
+2024-01-07 17:30:30 INFO  MenuStartApplication:106 - Quitting the game...
+2024-01-07 20:09:18 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-07 20:09:21 INFO  MenuStartApplication:88 - Change the language to:English
+2024-01-07 20:09:23 INFO  MenuStartApplication:78 - Zmiana języka na:Polski
+2024-01-07 20:09:25 INFO  MenuStartApplication:106 - Wyłączanie gry...
+2024-01-07 20:11:19 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-07 20:22:41 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-07 20:22:43 INFO  MenuStartApplication:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-07 20:23:06 INFO  MenuStartApplication:109 - Nie udało się rozwiązać planszy.
+2024-01-07 20:23:11 INFO  MenuStartApplication:158 - Wczytywanie stanu gry...
+2024-01-07 20:23:14 INFO  MenuStartApplication:107 - Rozwiązano planszę.
+2024-01-07 20:23:17 INFO  MenuStartApplication:109 - Nie udało się rozwiązać planszy.
+2024-01-07 20:23:19 INFO  MenuStartApplication:62 - Opuszczanie gry, powrót do menu.
+2024-01-07 20:23:20 INFO  MenuStartApplication:68 - Wybrany poziom trudnosci:Trudny
+2024-01-07 20:23:21 INFO  MenuStartApplication:62 - Opuszczanie gry, powrót do menu.
+2024-01-07 20:23:22 INFO  MenuStartApplication:59 - Wybrany poziom trudnosci:Średni
+2024-01-07 20:23:23 INFO  MenuStartApplication:62 - Opuszczanie gry, powrót do menu.
+2024-01-07 20:23:24 INFO  MenuStartApplication:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-07 20:23:25 INFO  MenuStartApplication:62 - Opuszczanie gry, powrót do menu.
+2024-01-07 20:23:26 INFO  MenuStartApplication:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-07 20:23:28 INFO  MenuStartApplication:62 - Opuszczanie gry, powrót do menu.
+2024-01-07 20:23:28 INFO  MenuStartApplication:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-07 20:23:30 INFO  MenuStartApplication:62 - Opuszczanie gry, powrót do menu.
+2024-01-07 20:23:31 INFO  MenuStartApplication:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-07 20:23:32 INFO  MenuStartApplication:62 - Opuszczanie gry, powrót do menu.
+2024-01-07 20:23:33 INFO  MenuStartApplication:68 - Wybrany poziom trudnosci:Trudny
+2024-01-07 20:23:37 INFO  MenuStartApplication:158 - Wczytywanie stanu gry...
+2024-01-07 20:23:39 INFO  MenuStartApplication:107 - Rozwiązano planszę.
+2024-01-07 20:23:40 INFO  MenuStartApplication:62 - Opuszczanie gry, powrót do menu.
+2024-01-07 20:23:42 INFO  MenuStartApplication:88 - Change the language to:English
+2024-01-07 20:23:44 INFO  MenuStartApplication:68 - Chosen difficulty level:Hard
+2024-01-07 20:23:45 INFO  MenuStartApplication:62 - Exiting the game, returning to the menu.
+2024-01-07 20:23:45 INFO  MenuStartApplication:59 - Chosen difficulty level:Medium
+2024-01-07 20:23:46 INFO  MenuStartApplication:62 - Exiting the game, returning to the menu.
+2024-01-07 20:23:47 INFO  MenuStartApplication:50 - Chosen difficulty level:Easy
+2024-01-07 20:23:48 INFO  MenuStartApplication:62 - Exiting the game, returning to the menu.
+2024-01-07 20:23:52 INFO  MenuStartApplication:78 - Zmiana języka na:Polski
+2024-01-07 20:23:55 INFO  MenuStartApplication:106 - Wyłączanie gry...
+2024-01-07 21:01:36 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-07 21:01:38 INFO  MenuStartApplication:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-07 21:01:47 INFO  MenuStartApplication:158 - Wczytywanie stanu gry...
+2024-01-07 21:01:51 INFO  MenuStartApplication:107 - Rozwiązano planszę.
+2024-01-07 21:01:58 INFO  MenuStartApplication:62 - Opuszczanie gry, powrót do menu.
+2024-01-07 21:02:00 INFO  MenuStartApplication:59 - Wybrany poziom trudnosci:Średni
+2024-01-07 21:02:06 INFO  MenuStartApplication:158 - Wczytywanie stanu gry...
+2024-01-07 21:02:06 ERROR MenuStartApplication:165 - Błąd podczas wczytywania stanu gry.
+2024-01-07 21:03:12 INFO  MenuStartApplication:62 - Opuszczanie gry, powrót do menu.
+2024-01-07 21:03:13 INFO  MenuStartApplication:106 - Wyłączanie gry...
+2024-01-07 21:50:51 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-07 22:28:52 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-07 22:28:54 INFO  MenuStartApplication:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-07 22:29:01 INFO  MenuStartApplication:108 - Nie udało się rozwiązać planszy.
+2024-01-07 22:29:03 INFO  MenuStartApplication:61 - Opuszczanie gry, powrót do menu.
+2024-01-07 22:29:05 INFO  MenuStartApplication:88 - Change the language to:English
+2024-01-07 22:29:07 INFO  MenuStartApplication:59 - Chosen difficulty level:Medium
+2024-01-07 22:29:13 INFO  MenuStartApplication:157 - Loading the game...
+2024-01-07 22:29:16 INFO  MenuStartApplication:108 - Failed to solve the board.
+2024-01-07 22:29:18 INFO  MenuStartApplication:108 - Failed to solve the board.
+2024-01-07 22:29:20 INFO  MenuStartApplication:106 - Board solved.
+2024-01-07 22:29:32 INFO  MenuStartApplication:61 - Exiting the game, returning to the menu.
+2024-01-07 22:29:33 INFO  MenuStartApplication:106 - Quitting the game...
+2024-01-07 22:33:18 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-07 22:33:21 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-07 22:33:31 INFO  BoardController:108 - Nie udało się rozwiązać planszy.
+2024-01-07 22:33:45 INFO  BoardController:61 - Opuszczanie gry, powrót do menu.
+2024-01-07 22:33:50 INFO  MenuStartController:88 - Change the language to:English
+2024-01-07 22:33:56 INFO  MenuStartController:78 - Zmiana języka na:Polski
+2024-01-07 22:33:57 INFO  MenuStartController:88 - Change the language to:English
+2024-01-07 22:33:59 INFO  MenuStartController:59 - Chosen difficulty level:Medium
+2024-01-07 22:34:00 INFO  BoardController:61 - Exiting the game, returning to the menu.
+2024-01-07 22:34:01 INFO  MenuStartController:68 - Chosen difficulty level:Hard
+2024-01-07 22:34:11 INFO  BoardController:157 - Loading the game...
+2024-01-07 22:34:14 INFO  BoardController:108 - Failed to solve the board.
+2024-01-07 22:34:16 INFO  BoardController:106 - Board solved.
+2024-01-07 22:34:23 INFO  BoardController:61 - Exiting the game, returning to the menu.
+2024-01-07 22:34:38 INFO  MenuStartController:59 - Chosen difficulty level:Medium
+2024-01-07 22:34:51 INFO  BoardController:157 - Loading the game...
+2024-01-07 22:34:51 ERROR BoardController:164 - Error during loading operation.
+2024-01-07 22:35:22 INFO  BoardController:61 - Exiting the game, returning to the menu.
+2024-01-07 22:35:23 INFO  MenuStartController:59 - Chosen difficulty level:Medium
+2024-01-07 22:35:26 INFO  BoardController:61 - Exiting the game, returning to the menu.
+2024-01-07 22:35:27 INFO  MenuStartController:78 - Zmiana języka na:Polski
+2024-01-07 22:35:30 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-07 22:35:34 INFO  BoardController:108 - Nie udało się rozwiązać planszy.
+2024-01-07 22:35:37 INFO  BoardController:61 - Opuszczanie gry, powrót do menu.
+2024-01-07 22:35:38 INFO  MenuStartController:68 - Wybrany poziom trudnosci:Trudny
+2024-01-07 22:35:42 INFO  BoardController:157 - Wczytywanie stanu gry...
+2024-01-07 22:35:47 INFO  BoardController:108 - Nie udało się rozwiązać planszy.
+2024-01-07 22:35:48 INFO  BoardController:106 - Rozwiązano planszę.
+2024-01-07 22:35:50 INFO  BoardController:61 - Opuszczanie gry, powrót do menu.
+2024-01-07 22:35:51 INFO  MenuStartController:106 - Wyłączanie gry...
