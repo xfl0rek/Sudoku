@@ -1,7 +1,6 @@
 package pl.sudoku.view;
 
 import javafx.application.Platform;
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.adapter.JavaBeanIntegerPropertyBuilder;
 import javafx.fxml.FXML;
@@ -17,7 +16,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import javafx.util.converter.IntegerStringConverter;
-import javafx.util.converter.NumberStringConverter;
 import org.apache.log4j.Logger;
 import pl.sudoku.*;
 import pl.sudoku.exceptions.FileReadException;
@@ -45,7 +43,7 @@ public class BoardController {
 
     private final List<ObjectProperty<Integer>> propertyList = new ArrayList<>();
 
-    private final StringConverter<Integer> converter = new IntegerStringConverter();
+    private final StringConverter<Integer> converter = new SudokuConverter();
 
     @FXML
     Button exit = new Button("Exit");
