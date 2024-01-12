@@ -355,3 +355,22 @@
 2024-01-07 22:35:48 INFO  BoardController:106 - Rozwiązano planszę.
 2024-01-07 22:35:50 INFO  BoardController:61 - Opuszczanie gry, powrót do menu.
 2024-01-07 22:35:51 INFO  MenuStartController:106 - Wyłączanie gry...
+2024-01-08 11:41:20 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-08 11:42:21 INFO  MenuStartController:106 - Wyłączanie gry...
+2024-01-08 16:29:30 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-08 16:29:35 INFO  MenuStartController:88 - Change the language to:English
+2024-01-08 16:29:40 INFO  MenuStartController:50 - Chosen difficulty level:Easy
+2024-01-08 16:29:46 INFO  BoardController:157 - Loading the game...
+2024-01-12 16:56:17 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-12 16:56:24 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-12 16:56:38 INFO  BoardController:63 - Opuszczanie gry, powrót do menu.
+2024-01-12 16:56:39 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-12 16:56:40 INFO  BoardController:63 - Opuszczanie gry, powrót do menu.
+2024-01-12 16:56:41 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-12 16:56:42 INFO  BoardController:63 - Opuszczanie gry, powrót do menu.
+2024-01-12 16:56:43 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-12 16:56:49 INFO  BoardController:160 - Wczytywanie stanu gry...
+2024-01-12 16:56:51 INFO  BoardController:109 - Rozwiązano planszę.
+2024-01-12 16:56:53 INFO  BoardController:111 - Nie udało się rozwiązać planszy.
+2024-01-12 16:56:55 INFO  BoardController:63 - Opuszczanie gry, powrót do menu.
+2024-01-12 16:56:55 INFO  MenuStartController:106 - Wyłączanie gry...

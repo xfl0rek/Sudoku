@@ -2,6 +2,7 @@ package pl.sudoku.view;
 
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.adapter.JavaBeanIntegerPropertyBuilder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
+import javafx.util.converter.IntegerStringConverter;
 import javafx.util.converter.NumberStringConverter;
 import org.apache.log4j.Logger;
 import pl.sudoku.*;
@@ -41,9 +43,9 @@ public class BoardController {
 
     private final SudokuBoardDaoFactory sudokuBoardDaoFactory = new SudokuBoardDaoFactory();
 
-    private final List<IntegerProperty> integerPropertyList = new ArrayList<>();
+    private final List<ObjectProperty<Integer>> propertyList = new ArrayList<>();
 
-    private final StringConverter<Number> converter = new NumberStringConverter();
+    private final StringConverter<Integer> converter = new IntegerStringConverter();
 
     @FXML
     Button exit = new Button("Exit");
@@ -89,17 +91,18 @@ public class BoardController {
                     textField.setDisable(true);
                 }
 
-                IntegerProperty integerProperty = JavaBeanIntegerPropertyBuilder
+                ObjectProperty<Integer> property = JavaBeanIntegerPropertyBuilder
                         .create()
                         .bean(sudokuField)
                         .name("fieldValue")
-                        .build();
+                        .build()
+                        .asObject();
 
-                this.integerPropertyList.add(integerProperty);
+                this.propertyList.add(property);
 
-                textField.textProperty().bindBidirectional(integerProperty, converter);
+                textField.textProperty().bindBidirectional(property, converter);
 
-                integerProperty.addListener(observable -> {
+                property.addListener(observable -> {
                     Platform.runLater(() -> {
                         if (isBoardSolved()) {
                             if (sudokuBoard.isBoardValid()) {
