@@ -15,7 +15,6 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
-import javafx.util.converter.IntegerStringConverter;
 import org.apache.log4j.Logger;
 import pl.sudoku.*;
 import pl.sudoku.exceptions.FileReadException;
