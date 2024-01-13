@@ -59,6 +59,9 @@ public class BoardController {
     @FXML
     Button saveToDB = new Button("Save to DB");
 
+    @FXML
+    Button loadFromDB = new Button("Load from DB");
+
     public void exit() throws IOException {
         logger.info(resourceBundle.getString("exitInfo"));
         root = FXMLLoader.load(Objects.requireNonNull(getClass()
@@ -181,10 +184,28 @@ public class BoardController {
                     try (Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getJdbcDao(inputString)) {
                         sudokuBoardDao.write(sudokuBoard);
                     } catch (Exception exception) {
-                        exception.printStackTrace();
                         throw new RuntimeException();
                     }
                 });
+            }
+        });
+    }
+
+    public void loadFromDB() {
+        TextInputDialog textInputDialog = new TextInputDialog();
+
+        Optional<String> result = textInputDialog.showAndWait();
+
+        result.ifPresent(inputString -> {
+            if (!inputString.isEmpty()) {
+                try (Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getJdbcDao(inputString)) {
+                    sudokuBoard = sudokuBoardDao.read();
+                    sudokuBoardGrid.getChildren().clear();
+                    fillBoard();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    throw new RuntimeException(e);
+                }
             }
         });
     }

@@ -23,6 +23,7 @@ public class JdbcSudokuBoardDao implements Dao<SudokuBoard> {
     private void createConnection() {
         try {
             connection = DriverManager.getConnection(url, username, password);
+            connection.setAutoCommit(false);
         } catch (SQLException exception) {
             ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
             throw new DaoException(resourceBundle.getString("connectionException"), exception);
@@ -31,7 +32,40 @@ public class JdbcSudokuBoardDao implements Dao<SudokuBoard> {
 
     @Override
     public SudokuBoard read() {
-        return null;
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("select f.value, f.row, f.col " +
+                     "from " + fieldTable + " f join " + boardTable +
+                     " b on f.id_board = b.id_board where b.name = '" + boardName + "'")) {
+
+            BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
+            SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
+
+            if (!resultSet.next()) {
+                throw new RuntimeException();
+            }
+
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 9; j++) {
+                    sudokuBoard.setValue(resultSet.getInt(2), resultSet.getInt(3),
+                            resultSet.getInt(1));
+
+                    if (resultSet.getInt(1) == 0) {
+                        sudokuBoard.getField(i, j).setEditable(true);
+                    }
+
+                    resultSet.next();
+                }
+            }
+            connection.commit();
+            return sudokuBoard;
+        } catch (SQLException sqlException) {
+            try {
+                connection.rollback();
+                throw new DaoException("message", sqlException);
+            } catch (SQLException exception) {
+                throw new DaoException("message", exception);
+            }
+        }
     }
 
     @Override

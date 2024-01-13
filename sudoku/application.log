@@ -452,3 +452,64 @@
 2024-01-13 14:22:07 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
 2024-01-13 14:24:07 INFO  BoardController:63 - Opuszczanie gry, powrót do menu.
 2024-01-13 14:24:08 INFO  MenuStartController:106 - Wyłączanie gry...
+2024-01-13 14:28:44 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 14:28:48 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 14:30:31 INFO  BoardController:63 - Opuszczanie gry, powrót do menu.
+2024-01-13 14:30:31 INFO  MenuStartController:106 - Wyłączanie gry...
+2024-01-13 15:11:01 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 15:11:26 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 15:11:54 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 15:11:56 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 15:16:42 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 15:16:45 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 15:23:10 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 15:23:12 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 15:24:34 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 15:24:36 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 15:28:31 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 15:28:32 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 15:32:16 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 15:32:18 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 15:33:46 INFO  BoardController:66 - Opuszczanie gry, powrót do menu.
+2024-01-13 15:33:46 INFO  MenuStartController:106 - Wyłączanie gry...
+2024-01-13 15:36:27 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 15:36:29 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 15:36:33 INFO  BoardController:66 - Opuszczanie gry, powrót do menu.
+2024-01-13 15:36:34 INFO  MenuStartController:106 - Wyłączanie gry...
+2024-01-13 15:44:46 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 15:44:48 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 15:45:15 INFO  BoardController:66 - Opuszczanie gry, powrót do menu.
+2024-01-13 15:45:16 INFO  MenuStartController:106 - Wyłączanie gry...
+2024-01-13 16:07:35 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 16:07:38 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 16:15:35 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 16:15:37 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 16:17:20 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 16:17:22 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 16:24:53 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 16:24:54 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 16:28:17 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 16:28:18 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 16:29:50 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 16:29:54 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 16:30:02 INFO  BoardController:66 - Opuszczanie gry, powrót do menu.
+2024-01-13 16:30:03 INFO  MenuStartController:68 - Wybrany poziom trudnosci:Trudny
+2024-01-13 16:30:11 INFO  BoardController:66 - Opuszczanie gry, powrót do menu.
+2024-01-13 16:30:13 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 16:30:21 INFO  BoardController:163 - Wczytywanie stanu gry...
+2024-01-13 16:30:35 INFO  BoardController:66 - Opuszczanie gry, powrót do menu.
+2024-01-13 16:30:36 INFO  MenuStartController:68 - Wybrany poziom trudnosci:Trudny
+2024-01-13 16:32:24 INFO  BoardController:66 - Opuszczanie gry, powrót do menu.
+2024-01-13 16:32:25 INFO  MenuStartController:106 - Wyłączanie gry...
+2024-01-13 16:38:38 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 16:38:39 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 16:38:48 INFO  BoardController:66 - Opuszczanie gry, powrót do menu.
+2024-01-13 16:38:48 INFO  MenuStartController:106 - Wyłączanie gry...
+2024-01-13 16:42:30 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 16:42:32 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 16:42:42 INFO  BoardController:112 - Rozwiązano planszę.
+2024-01-13 16:42:44 INFO  BoardController:114 - Nie udało się rozwiązać planszy.
+2024-01-13 16:42:46 INFO  BoardController:66 - Opuszczanie gry, powrót do menu.
+2024-01-13 16:42:55 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 16:43:57 INFO  BoardController:66 - Opuszczanie gry, powrót do menu.
+2024-01-13 16:43:57 INFO  MenuStartController:106 - Wyłączanie gry...
