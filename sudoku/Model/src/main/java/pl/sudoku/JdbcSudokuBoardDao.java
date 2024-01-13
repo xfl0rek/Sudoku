@@ -35,15 +35,16 @@ public class JdbcSudokuBoardDao implements Dao<SudokuBoard> {
     @Override
     public SudokuBoard read() {
         try (Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("select f.value, f.row, f.col " +
-                     "from " + fieldTable + " f join " + boardTable +
-                     " b on f.id_board = b.id_board where b.name = '" + boardName + "'")) {
+             ResultSet resultSet = statement.executeQuery("select f.value, f.row, f.col "
+                     + "from " + fieldTable + " f join " + boardTable
+                     + " b on f.id_board = b.id_board where b.name = '" + boardName + "'")) {
 
             BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
             SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
 
             if (!resultSet.next()) {
-                throw new RuntimeException();
+                ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
+                throw new JdbcReadException(resourceBundle.getString("DBReadException"), null);
             }
 
             for (int i = 0; i < 9; i++) {
@@ -74,28 +75,59 @@ public class JdbcSudokuBoardDao implements Dao<SudokuBoard> {
 
     @Override
     public void write(SudokuBoard obj) {
-        try (Statement statement1 = connection.createStatement();
-             Statement statement2 = connection.createStatement()) {
-            connection.setAutoCommit(false);
-            statement1.execute("create table " + boardTable +
-                    " (id_board serial primary key not null, name varchar unique not null)");
-            statement2.execute("create table " + fieldTable +
-                    " (id_field serial primary key not null, " +
-                    "value integer not null, row integer not null, col integer not null, " +
-                    "id_board integer references " + boardTable + "(id_board))");
-            connection.commit();
-        } catch (SQLException sqlException) {
-            try {
-                connection.rollback();
-            } catch (SQLException exception) {
+        try (Statement checkStatement = connection.createStatement()) {
+            ResultSet checkResultSet = checkStatement.executeQuery("SELECT * FROM "
+                    + boardTable + " WHERE name = '" + boardName + "'");
+            if (checkResultSet.next()) {
                 ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
-                throw new JdbcWriteException(resourceBundle.getString("RollbackError"), exception);
+                throw new JdbcWriteException(resourceBundle.getString("boardNameExists"), null);
             }
+        } catch (SQLException sqlException) {
+            ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
+            throw new JdbcWriteException(resourceBundle.getString("DBWriteError"), sqlException);
         }
 
-        try (Statement statement = connection.createStatement()) {
-            statement.execute("insert into " + boardTable +
-                    "(name) values " + "('" + boardName + "')");
+        try {
+            connection.setAutoCommit(false);
+            try (Statement statement = connection.createStatement()) {
+                statement.execute("INSERT INTO " + boardTable + "(name) VALUES ('" + boardName + "')");
+            } catch (SQLException sqlException) {
+                connection.rollback();
+                ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
+                throw new JdbcWriteException(resourceBundle.getString("DBWriteError"), sqlException);
+            }
+
+            try (Statement statement1 = connection.createStatement();
+                 Statement statement2 = connection.createStatement();
+                 ResultSet resultSet = statement1.executeQuery("SELECT * FROM "
+                         + boardTable + " WHERE name LIKE '" + boardName + "'")) {
+
+                StringBuilder boardToWrite = new StringBuilder();
+                String id = null;
+
+                while (resultSet.next()) {
+                    id = String.valueOf(resultSet.getInt("id_board"));
+                }
+
+                for (int i = 0; i < 9; i++) {
+                    for (int j = 0; j < 9; j++) {
+                        boardToWrite.append("(").append(i).append(",").append(j).append(",")
+                                .append(obj.getValue(i, j)).append(",").append(id).append(")");
+                        if (i != 8 || j != 8) {
+                            boardToWrite.append(",\n");
+                        }
+                    }
+                }
+
+                statement2.execute("INSERT INTO " + fieldTable
+                        + "(row, col, value, id_board) VALUES " + boardToWrite);
+                connection.commit();
+            } catch (SQLException sqlException) {
+                connection.rollback();
+                ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
+                throw new JdbcWriteException(resourceBundle.getString("DBWriteError"), sqlException);
+            }
+
         } catch (SQLException sqlException) {
             try {
                 connection.rollback();
@@ -106,44 +138,8 @@ public class JdbcSudokuBoardDao implements Dao<SudokuBoard> {
                 throw new JdbcWriteException(resourceBundle.getString("RollbackError"), e);
             }
         }
-
-        try (Statement statement1 = connection.createStatement();
-             Statement statement2 = connection.createStatement();
-             ResultSet resultSet = statement1.executeQuery("select * from "
-                       + boardTable + " where name like '" + boardName + "'")) {
-
-            StringBuilder boardToWrite = new StringBuilder();
-            String id = null;
-
-            while (resultSet.next()) {
-                id = String.valueOf(resultSet.getInt("id_board"));
-            }
-
-            for (int i = 0; i < 9; i++) {
-                for (int j = 0; j < 9; j++) {
-                    boardToWrite.append("(").append(i).append(",").append(j).append(",")
-                            .append(obj.getValue(i, j)).append(",").append(id).append(")");
-                    if (i != 8 || j != 8) {
-                        boardToWrite.append(",\n");
-                    }
-                }
-            }
-
-            statement2.execute("insert into " + fieldTable +
-                    "(row, col, value, id_board) values " + boardToWrite);
-            connection.commit();
-            connection.setAutoCommit(true);
-        } catch (SQLException sqlException) {
-            try {
-                connection.rollback();
-                ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
-                throw new JdbcWriteException(resourceBundle.getString("DBWriteError"), sqlException);
-            } catch (SQLException exception) {
-                ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
-                throw new JdbcWriteException(resourceBundle.getString("RollbackError"), exception);
-            }
-        }
     }
+
 
     @Override
     public void close() throws Exception {
