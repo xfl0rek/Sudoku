@@ -43,6 +43,7 @@
         <items>
           <Button fx:id="saveGame" mnemonicParsing="false" onAction="#saveGame" style="-fx-background-color: orange;" text="%saveGame" />
             <Button fx:id="loadGame" mnemonicParsing="false" onAction="#loadGame" style="-fx-background-color: orange;" text="%loadGame" />
+            <Button fx:id="saveToDB" mnemonicParsing="false" onAction="#saveToDB" style="-fx-background-color: orange;" text="save to DB" />
         </items>
       </ToolBar>
    </children>

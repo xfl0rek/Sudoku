@@ -11,20 +11,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import org.apache.log4j.Logger;
 import pl.sudoku.*;
+import pl.sudoku.exceptions.DaoException;
 import pl.sudoku.exceptions.FileReadException;
 import pl.sudoku.exceptions.FileWriteException;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class BoardController {
     private static final Logger logger = Logger.getLogger(BoardController.class);
@@ -55,6 +55,9 @@ public class BoardController {
 
     @FXML
     Button loadGame = new Button("Load game");
+
+    @FXML
+    Button saveToDB = new Button("Save to DB");
 
     public void exit() throws IOException {
         logger.info(resourceBundle.getString("exitInfo"));
@@ -164,6 +167,26 @@ public class BoardController {
             logger.error(resourceBundle.getString("loadingError"));
             throw new FileReadException(resourceBundle.getString("fileReadException"), exception);
         }
+    }
+
+    public void saveToDB() {
+        TextInputDialog textInputDialog = new TextInputDialog();
+        textInputDialog.setHeaderText("Enter board name: ");
+
+        Optional<String> result = textInputDialog.showAndWait();
+
+        result.ifPresent(inputString -> {
+            if (!inputString.isEmpty()) {
+                Platform.runLater(() -> {
+                    try (Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getJdbcDao(inputString)) {
+                        sudokuBoardDao.write(sudokuBoard);
+                    } catch (Exception exception) {
+                        exception.printStackTrace();
+                        throw new RuntimeException();
+                    }
+                });
+            }
+        });
     }
 
     public void initialize() throws NoSuchMethodException {

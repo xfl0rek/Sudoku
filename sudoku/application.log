@@ -424,3 +424,31 @@
 2024-01-12 20:13:29 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
 2024-01-12 20:13:30 INFO  BoardController:60 - Opuszczanie gry, powrót do menu.
 2024-01-12 20:13:31 INFO  MenuStartController:106 - Wyłączanie gry...
+2024-01-13 13:40:22 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 13:40:24 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 13:40:37 INFO  BoardController:140 - Zapisywanie stanu gry...
+2024-01-13 13:40:38 INFO  BoardController:60 - Opuszczanie gry, powrót do menu.
+2024-01-13 13:40:39 INFO  MenuStartController:68 - Wybrany poziom trudnosci:Trudny
+2024-01-13 13:40:45 INFO  BoardController:157 - Wczytywanie stanu gry...
+2024-01-13 13:40:46 INFO  BoardController:60 - Opuszczanie gry, powrót do menu.
+2024-01-13 13:40:47 INFO  MenuStartController:106 - Wyłączanie gry...
+2024-01-13 14:01:16 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 14:01:17 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 14:07:52 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 14:07:54 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 14:10:47 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 14:11:00 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 14:12:32 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 14:12:34 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 14:13:23 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 14:13:24 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 14:13:29 INFO  BoardController:160 - Wczytywanie stanu gry...
+2024-01-13 14:16:13 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 14:16:15 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 14:16:20 INFO  BoardController:160 - Wczytywanie stanu gry...
+2024-01-13 14:20:14 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 14:20:15 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 14:22:05 INFO  MenuStartApplication:21 - Otwieram menu gry.
+2024-01-13 14:22:07 INFO  MenuStartController:50 - Wybrany poziom trudnosci:Łatwy
+2024-01-13 14:24:07 INFO  BoardController:63 - Opuszczanie gry, powrót do menu.
+2024-01-13 14:24:08 INFO  MenuStartController:106 - Wyłączanie gry...
