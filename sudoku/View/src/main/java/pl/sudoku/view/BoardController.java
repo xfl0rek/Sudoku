@@ -18,13 +18,13 @@ import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import org.apache.log4j.Logger;
 import pl.sudoku.*;
-import pl.sudoku.exceptions.DaoException;
 import pl.sudoku.exceptions.FileReadException;
 import pl.sudoku.exceptions.FileWriteException;
+import pl.sudoku.exceptions.JdbcReadException;
+import pl.sudoku.exceptions.JdbcWriteException;
 
 import java.io.*;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class BoardController {
     private static final Logger logger = Logger.getLogger(BoardController.class);
@@ -174,9 +174,11 @@ public class BoardController {
 
     public void saveToDB() {
         TextInputDialog textInputDialog = new TextInputDialog();
-        textInputDialog.setHeaderText("Enter board name: ");
+        textInputDialog.setHeaderText(resourceBundle.getString("enterName"));
 
         Optional<String> result = textInputDialog.showAndWait();
+
+        logger.info(resourceBundle.getString("saveInfo"));
 
         result.ifPresent(inputString -> {
             if (!inputString.isEmpty()) {
@@ -184,7 +186,8 @@ public class BoardController {
                     try (Dao<SudokuBoard> sudokuBoardDao = sudokuBoardDaoFactory.getJdbcDao(inputString)) {
                         sudokuBoardDao.write(sudokuBoard);
                     } catch (Exception exception) {
-                        throw new RuntimeException();
+                        logger.error(resourceBundle.getString("savingError"));
+                        throw new JdbcWriteException(resourceBundle.getString("DBWriteException"), exception);
                     }
                 });
             }
@@ -193,8 +196,11 @@ public class BoardController {
 
     public void loadFromDB() {
         TextInputDialog textInputDialog = new TextInputDialog();
+        textInputDialog.setHeaderText(resourceBundle.getString("enterName"));
 
         Optional<String> result = textInputDialog.showAndWait();
+
+        logger.info(resourceBundle.getString("loadInfo"));
 
         result.ifPresent(inputString -> {
             if (!inputString.isEmpty()) {
@@ -203,8 +209,8 @@ public class BoardController {
                     sudokuBoardGrid.getChildren().clear();
                     fillBoard();
                 } catch (Exception e) {
-                    e.printStackTrace();
-                    throw new RuntimeException(e);
+                    logger.error(resourceBundle.getString("loadingError"));
+                    throw new JdbcReadException(resourceBundle.getString("DBReadException"), e);
                 }
             }
         });

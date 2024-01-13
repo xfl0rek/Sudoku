@@ -1,6 +1,8 @@
 package pl.sudoku;
 
 import pl.sudoku.exceptions.DaoException;
+import pl.sudoku.exceptions.JdbcReadException;
+import pl.sudoku.exceptions.JdbcWriteException;
 
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -61,9 +63,11 @@ public class JdbcSudokuBoardDao implements Dao<SudokuBoard> {
         } catch (SQLException sqlException) {
             try {
                 connection.rollback();
-                throw new DaoException("message", sqlException);
+                ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
+                throw new JdbcReadException(resourceBundle.getString("DBReadException"), sqlException);
             } catch (SQLException exception) {
-                throw new DaoException("message", exception);
+                ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
+                throw new JdbcReadException(resourceBundle.getString("RollbackError"), exception);
             }
         }
     }
@@ -84,7 +88,8 @@ public class JdbcSudokuBoardDao implements Dao<SudokuBoard> {
             try {
                 connection.rollback();
             } catch (SQLException exception) {
-                throw new DaoException("message", exception);
+                ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
+                throw new JdbcWriteException(resourceBundle.getString("RollbackError"), exception);
             }
         }
 
@@ -94,9 +99,11 @@ public class JdbcSudokuBoardDao implements Dao<SudokuBoard> {
         } catch (SQLException sqlException) {
             try {
                 connection.rollback();
-                throw new DaoException("message", sqlException);
-            } catch (SQLException exception) {
-                throw new DaoException("message", exception);
+                ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
+                throw new JdbcWriteException(resourceBundle.getString("DBWriteError"), sqlException);
+            } catch (SQLException e) {
+                ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
+                throw new JdbcWriteException(resourceBundle.getString("RollbackError"), e);
             }
         }
 
@@ -129,9 +136,11 @@ public class JdbcSudokuBoardDao implements Dao<SudokuBoard> {
         } catch (SQLException sqlException) {
             try {
                 connection.rollback();
-                throw new DaoException("message", sqlException);
+                ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
+                throw new JdbcWriteException(resourceBundle.getString("DBWriteError"), sqlException);
             } catch (SQLException exception) {
-                throw new DaoException("message", exception);
+                ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
+                throw new JdbcWriteException(resourceBundle.getString("RollbackError"), exception);
             }
         }
     }
