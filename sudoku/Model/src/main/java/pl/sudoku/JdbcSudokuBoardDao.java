@@ -24,9 +24,10 @@ public class JdbcSudokuBoardDao implements Dao<SudokuBoard> {
 
     private void createConnection() {
         try {
+            Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, username, password);
             connection.setAutoCommit(false);
-        } catch (SQLException exception) {
+        } catch (SQLException | ClassNotFoundException exception) {
             ResourceBundle resourceBundle = ResourceBundle.getBundle("Lang");
             throw new DaoException(resourceBundle.getString("connectionException"), exception);
         }
@@ -35,9 +36,9 @@ public class JdbcSudokuBoardDao implements Dao<SudokuBoard> {
     @Override
     public SudokuBoard read() {
         try (Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("select f.value, f.row, f.col "
-                     + "from " + fieldTable + " f join " + boardTable
-                     + " b on f.id_board = b.id_board where b.name = '" + boardName + "'")) {
+             ResultSet resultSet = statement.executeQuery("SELECT f.value, f.row, f.col "
+                     + "FROM " + fieldTable + " f JOIN " + boardTable
+                     + " b ON f.id_board = b.id_board WHERE b.name = '" + boardName + "'")) {
 
             BacktrackingSudokuSolver backtrackingSudokuSolver = new BacktrackingSudokuSolver();
             SudokuBoard sudokuBoard = new SudokuBoard(backtrackingSudokuSolver);
@@ -139,7 +140,6 @@ public class JdbcSudokuBoardDao implements Dao<SudokuBoard> {
             }
         }
     }
-
 
     @Override
     public void close() throws Exception {
